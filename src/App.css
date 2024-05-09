@@ -29,6 +29,29 @@
   fill : #D87D4A;
   transition: all ease-in-out 0.1s;
 }
+/*  bg-pattern-circle bg-[-12rem_1rem]">
+*/
+
+.zx9-grid-home{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #D87D4A ;
+  border-radius: 8px;
+  color: white;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+@media screen and (max-width:1024px) {
+  .zx9-grid-home{
+    flex-direction: column;
+  }
+  
+} 
+
+
 
 
 

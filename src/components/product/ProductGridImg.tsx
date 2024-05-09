@@ -18,7 +18,7 @@ const ProductGridImg = ({ slug }: ProductGridImgProps) => {
         return `/src/assets/shared/product/${slug}/image-gallery-${numberImg}-${imageSizeSuffix}.jpg`;
     };
     return (
-        <div className="grid grid-rows-2 grid-cols-10 gap-[30px] sm:grid-cols-1 sm:grid-rows-4 my-40 md:my-30 ">
+        <div className="grid grid-rows-2 grid-cols-10 gap-[30px] sm:grid-cols-1 sm:grid-rows-4 my-40 md:my-30 sm:my-[88px] ">
             <img
                 className="col-span-4 row-span-1 object-cover rounded-lg w-full h-full sm:row-span-1 sm:row-start-1 sm:col-span-10"
                 src={renderProductImages(slug, "1")}

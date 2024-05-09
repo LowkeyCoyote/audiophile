@@ -28,13 +28,14 @@ const Button = ({ children, variant, link, className }: ButtonProps) => {
 };
 
 const buttonVariants = cva(
-  'subtitle py-4 px-8 font-medium duration-100 ease-in-out text-center',
+  'subtitle py-4 px-8 font-medium duration-100 ease-in-out text-center uppercase',
   {
     variants: {
       variant: {
         primary: 'bg-dark-peach hover:bg-peach text-white',
-        secondary: '',
+        black: 'bg-black hover:bg-black-button-hover text-white',
         shop: 'bg-transparent opacity-50 flex items-center mx-auto',
+        transparent : 'bg-transparent text-black border border-black font-semibold hover:bg-black hover:text-white'
       },
     },
     defaultVariants: {

@@ -38,7 +38,7 @@ const ProductCard = ({slug,isNew,description,name,price,}: ProductHomeProps) => 
         return `/src/assets/shared/product/${slug}/image-product-${imageSizeSuffix}.jpg`;
     };
     return (
-        <div className="flex items-center sm:flex-col">
+        <div className="flex items-center sm:flex-col mb-40 sm:mb-20">
             <img
                 className="rounded-lg w-[40%] sm:w-full"
                 src={renderProductImages(slug)}

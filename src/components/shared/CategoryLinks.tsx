@@ -7,6 +7,7 @@ import imageCategorySpeakers from '@assets/shared/image-category-thumbnail-speak
 import imageCategoryEarphones from '@assets/shared/image-category-thumbnail-earphones-desktop.png';
 
 import iconRight from '@assets/shared/icons/icon-arrow-right.svg';
+import { Link } from 'react-router-dom';
 
 const categoryLinkArray = [
   {
@@ -30,6 +31,7 @@ const categoryLinkArray = [
 ];
 
 const CategoryLinks = ({ className }: HTMLAttributes<HTMLDivElement>) => {
+
   return (
     <div
       className={twMerge(
@@ -38,7 +40,8 @@ const CategoryLinks = ({ className }: HTMLAttributes<HTMLDivElement>) => {
       )}
     >
       {categoryLinkArray.map(({ img, altText, text, link }, index) => (
-        <div
+        <Link
+        to={link}
           key={index}
           className="relative bg-very-light-grey rounded-lg text-center px-28 pb-8 pt-28
                      md:pb-5 md:pt-[88px] md:px-14">
@@ -49,9 +52,9 @@ const CategoryLinks = ({ className }: HTMLAttributes<HTMLDivElement>) => {
           />
           <h6 className="uppercase">{text}</h6>
           <Button variant="shop" link={link}>
-            SHOP <img src={iconRight} className="pl-3" alt="right" />
+            SHOP <img src={iconRight} className="pl-3" />
           </Button>
-        </div>
+        </Link>
       ))}
     </div>
   );

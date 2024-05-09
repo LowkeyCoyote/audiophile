@@ -19,7 +19,6 @@ const ProductCardCategory = ({
   isNew,
   name,
   description,
-  idProduct,
   reverse,
 }: ProductCardCategoryProps) => {
   let isMobile = useIsMobile();
@@ -51,7 +50,7 @@ const ProductCardCategory = ({
         )}
         <h2 className="mb-8 sm:mb-6 sm:text-h2-mobile sm:leading-5 sm:px-16 ">{name}</h2>
         <p className="opacity-50 mb-10 md:mb-6 sm:mb-6">{description}</p>
-        <Button link={`/product/${idProduct}`}>See Product</Button>
+        <Button link={`/product/${slug}`}>See Product</Button>
       </div>
     </div>
   );

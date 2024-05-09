@@ -2,25 +2,27 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import dataProduct from '@datas/dataProduct.json';
 import ProductCard from '@components/product/ProductCard';
 import ProductGridImg from '@components/product/ProductGridImg';
+import ProductDetails from '@components/product/ProductDetails';
+import CategoryLinks from '@components/shared/CategoryLinks';
+import ProductSuggestion from '@components/product/ProductSuggestion';
 
 const ProductPage = () => {
     let navigate = useNavigate();
-    let idProduct : number;
+    let slugProduct : string;
     let productData : any = null;
     let param = useParams();
 
 
     if (
-        !param.id ||
-        isNaN(parseInt(param.id)) ||
-        !dataProduct.find((e) => e.idProduct.toString() === param.id)
+        !param.slug ||
+        !dataProduct.find((e) => e.slug === param.slug)
     ) {
         navigate('/');
     } else {
-        idProduct = parseInt(param.id);
-        productData = dataProduct.find((e) => e.idProduct === idProduct)
+        slugProduct =param.slug;
+        productData = dataProduct.find((e) => e.slug === slugProduct)
     }
-    console.log(productData.gallery)
+    console.log(productData)
 
 
     return (
@@ -40,9 +42,20 @@ const ProductPage = () => {
             name={productData.name}
             description={productData.description}
             price = {productData.price}
-            />    
+            /> 
+            <ProductDetails
+            features={productData.features}
+            includes={productData.includes}
+            
+            />
             <ProductGridImg
             slug={productData.slug}
+            />
+
+            <ProductSuggestion
+            others={productData.others}
+            />
+            <CategoryLinks
             />
         </section>
     );
