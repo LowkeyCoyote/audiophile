@@ -18,6 +18,42 @@
   letter-spacing: 1px;
 }
 
+input{
+  border: 1px solid #CFCFCF;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+  padding-left: 24px !important;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 24px !important;
+}
+
+input:focus{
+  outline: solid 1px #D87D4A;
+  border: none;
+  color: black;
+  font-weight: bold;
+}
+
+input:not(:focus) {
+  color: black;
+  font-weight: bold;
+}
+
+input::placeholder{
+  font-size: 14px;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+  border-radius: 8px;
+}
+
+label{
+  font-size: 12px;
+  padding-left: 2px;
+}
+
 
 .iconFooter:hover{
   fill : #D87D4A;
@@ -51,6 +87,10 @@
   
 } 
 
+
+.block-scroll {
+  overflow: hidden;
+}
 
 
 

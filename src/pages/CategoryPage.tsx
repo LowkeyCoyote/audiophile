@@ -25,7 +25,7 @@ const CategoryPage = () => {
   return (
     <section>
       <HeroCategory categoryName={category} />
-      <div className='p-40 md:px-10 md:py-[120px] sm:px-6'>
+      <div className='p-40 md:px-10 md:pt-[120px] md:pb-0 sm:px-6'>
       <div className=" flex flex-col gap-40  md:gap-[120px]">
         {products.map(({ slug, isNew, name, description, idProduct }, index) => (
           <ProductCardCategory 
@@ -40,7 +40,9 @@ const CategoryPage = () => {
         ))}
       </div>
       <CategoryLinks className="mt-[200px] mb-40 md:mt-36 md:mb-24 sm:mt-24 sm:mb-[120px]" />
-      <BestGearCard />
+      <BestGearCard
+      className='pb-[200px] md:pb-0'
+      />
 
       </div>
 

@@ -42,8 +42,8 @@ const CategoryLinks = ({ className }: HTMLAttributes<HTMLDivElement>) => {
       {categoryLinkArray.map(({ img, altText, text, link }, index) => (
         <Link
         to={link}
-          key={index}
-          className="relative bg-very-light-grey rounded-lg text-center px-28 pb-8 pt-28
+        key={index}
+        className="relative bg-very-light-grey rounded-lg text-center px-28 pb-8 pt-28
                      md:pb-5 md:pt-[88px] md:px-14">
           <img
             src={img}

@@ -8,6 +8,7 @@ export type ProductType = {
   idProduct: number;
   slug: string;
   name: string;
+  cartName : string;
   image: ImageUrls;
   category: string;
   categoryImage: ImageUrls;
@@ -27,8 +28,19 @@ export type ProductType = {
   others: {
     slug: string;
     name: string;
-    image: ImageUrls;
   }[];
+}
+
+export type ItemState = {
+  idProduct : number;
+  quantity : number;
+  slug : string;
+  price : string;
+  cartName : string;
+}
+
+export type CartState =  {
+  items : ItemState[]
 }
 
 

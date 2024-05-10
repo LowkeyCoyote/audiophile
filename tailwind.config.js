@@ -50,6 +50,12 @@ export default {
       'grid-home-zx7-desktop' : "url('/src/assets/home/image-speaker-zx7-desktop.jpg')",
       'grid-home-zx7-tablet' : "url('/src/assets/home/image-speaker-zx7-tablet.jpg')",
       'grid-home-zx7-mobile' : "url('/src/assets/home/image-speaker-zx7-mobile.jpg')",
+
+      'grid-home-zx9-desktop' : "url('/src/assets/home/image-speaker-zx9-desktop.png')",
+      'grid-home-zx9-tablet' : "url('/src/assets/home/image-speaker-zx9-tablet.png')",
+      'grid-home-zx9-mobile' : "url('/src/assets/home/image-speaker-zx9-mobile.png')"
+
+
     },
     
     

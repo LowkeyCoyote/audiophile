@@ -1,19 +1,18 @@
 import { Link } from 'react-router-dom';
 import logoNavbar from '@assets/shared/logo/logo.svg';
 import iconCart from '@assets/shared/icons/icon-cart.svg';
-import iconHamburger from '@assets/shared/icons/icon-hamburger.svg'
-import {useState} from 'react'
+import iconHamburger from '@assets/shared/icons/icon-hamburger.svg';
+import { useState } from 'react';
 import CategoryLinks from '../CategoryLinks';
 import Modal from '@components/shared/ui/Modal';
 
 const Navbar = () => {
-
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleNavbar = () => {
-        setIsOpen(!isOpen)
-    }
-
+        setIsOpen(!isOpen);
+        document.body.classList.toggle('block-scroll');
+    };
 
     const navLinks = [
         { path: './', text: 'Home' },
@@ -22,13 +21,16 @@ const Navbar = () => {
         { path: './category/earphones', text: 'earphones' },
     ];
 
-
-
     return (
         <nav className="px-40 bg-[#191919] md:px-0   sm:px-0 relative z-50">
             <div className="flex items-center justify-between  text-white  py-9 border-b border-gray-border border-opacity-50 md:px-10 sm:px-6">
-                <div className='flex items-center'>
-                    <img className='hidden md:h-min md:block md:mr-10 ' onClick={toggleNavbar} src={iconHamburger} alt="icon hamburger" />
+                <div className="flex items-center">
+                    <img
+                        className="hidden md:h-min md:block md:mr-10 "
+                        onClick={toggleNavbar}
+                        src={iconHamburger}
+                        alt="icon hamburger"
+                    />
                     <Link to="./">
                         <img src={logoNavbar} alt="audiophile logo" />
                     </Link>
@@ -49,7 +51,13 @@ const Navbar = () => {
 
                 <img src={iconCart} alt="cart" />
             </div>
-            {isOpen ?<Modal><CategoryLinks/></Modal>  : ''}
+            {isOpen ? (
+                <Modal>
+                    <CategoryLinks className="md:pb-16 md:pt-20 md:px-10 sm:px-8 sm:pt-20 sm:pb-16" />
+                </Modal>
+            ) : (
+                ''
+            )}
         </nav>
     );
 };

@@ -10,7 +10,7 @@ const navLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-[#101010] px-40 pt-20 pb-12  text-white md:px-10 md:mt-14 md:mb-16 sm:pt-14 sm:pb-10 sm:px-6 ">
+    <footer className="bg-[#101010] px-40 pt-20 pb-12  text-white md:px-10 md:mb-16 sm:pt-14 sm:pb-10 sm:px-6 ">
       <div className="flex justify-between items-center mb-8 md:flex-col md:items-start  sm:items-center sm:mb-12 sm:gap-12 ">
         <img src={logoDesigno} alt="logo designo" className="md:mb-8 " />
         <ul className="flex gap-9 items-center sm:flex-col sm:gap-4 ">

@@ -20,12 +20,12 @@ const ProductDetails = ({ features, includes }: ProductGridImgProps) => {
                     Features
                 </h3>
                 {featureParagraphs.map((paragraph, index) => (
-                    <>
-                        <p key={index} className="opacity-50">
+                    <div key={index} >
+                        <p className="opacity-50">
                             {paragraph}
                         </p>
                         <br />
-                    </>
+                    </div>
                 ))}
             </div>
             <div className="w-2/5 ml-16 md:ml-0 md:w-full md:flex md:text-left sm:flex sm:flex-col ">
