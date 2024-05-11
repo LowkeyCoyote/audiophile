@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import  {ItemState}  from "@types/types.ts"
+import  {ItemState}  from "../../types/types"
 import Button from '@components/shared/ui/Buttton';
 
 const CartCheckout = ({ className }: HTMLAttributes<HTMLDivElement>) => {
@@ -37,7 +37,7 @@ const CartCheckout = ({ className }: HTMLAttributes<HTMLDivElement>) => {
                         />
                         <div className="flex flex-col font-bold pl-4 self-center">
                             <p className="text-[15px] w-max">{cartName}</p>
-                            <p className="text-[14px]  opacity-50 w-max">{`$ ${price.toLocaleString('en-US', { minimumFractionDigits: 2 })}`}</p>
+                            <p className="text-[14px]  opacity-50 w-max">{`$ ${parseInt(price).toLocaleString('en-US', { minimumFractionDigits: 2 })}`}</p>
                         </div>
                     </div>
                     <p className="text-[15px] opacity-50 font-bold">

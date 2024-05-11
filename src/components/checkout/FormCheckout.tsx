@@ -9,6 +9,7 @@ type FormData = {
     zipCode: string;
     city: string;
     country: string;
+
 };
 
 const FormCheckout = () => {
@@ -111,7 +112,8 @@ const FormCheckout = () => {
                     />
 
 
-                </div>    
+                </div>   
+         
             </form>
         </div>
     );
