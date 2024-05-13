@@ -18,7 +18,10 @@
   letter-spacing: 1px;
 }
 
-input{
+
+/* inputs */
+
+.inputFormCheckout{
   border: 1px solid #CFCFCF;
   padding-top: 18px !important;
   padding-bottom: 18px !important;
@@ -30,19 +33,19 @@ input{
   margin-bottom: 24px !important;
 }
 
-input:focus{
+.inputFormCheckout:focus{
   outline: solid 1px #D87D4A;
   border: none;
   color: black;
   font-weight: bold;
 }
 
-input:not(:focus) {
+.inputFormCheckout:not(:focus) {
   color: black;
   font-weight: bold;
 }
 
-input::placeholder{
+.inputFormCheckout::placeholder{
   font-size: 14px;
   padding-top: 18px !important;
   padding-bottom: 18px !important;
@@ -53,6 +56,34 @@ label{
   font-size: 12px;
   padding-left: 2px;
 }
+
+.inputFormCheckoutRadio{
+  border: #CFCFCF 1px solid;
+  padding: 23px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.inputFormCheckoutRadio > input{
+  margin-right: 16px; 
+  color: #D87D4A;
+}
+
+
+
+.inputFormCheckoutRadio input[type="radio"] {
+  accent-color: #D87D4A;
+}
+
+.inputFormCheckoutRadio:focus-within {
+  border-color: #D87D4A; 
+}
+
+
+
+
+
 
 
 .iconFooter:hover{

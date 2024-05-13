@@ -12,6 +12,22 @@ interface FormFieldProps {
 }
 
 const FormField: React.FC<FormFieldProps> = ({ label, name, type, placeholder, error, register, column, validationPattern }) => {
+
+
+    let maxLength = 80; // Valeur par défaut pour maxLength
+
+    if (name === "eMoneyPIN") {
+        maxLength = 4;
+    }
+
+    if(name === "eMoneyNumber"){
+        maxLength = 9
+    }
+
+    if(type === 'tel'){
+        maxLength = 12
+    }
+
     return (
         <div className={column}>
             <div className="flex items-center justify-between mb-2">
@@ -29,15 +45,17 @@ const FormField: React.FC<FormFieldProps> = ({ label, name, type, placeholder, e
                 )}
             </div>
             <input
-                className={`w-full ${error ? '!outline-[#CD2C2C]' : ''}`}
+                className={`inputFormCheckout w-full ${error ? '!outline-[#CD2C2C]' : ''}`}
                 type={type}
                 placeholder={placeholder}
+                maxLength= {maxLength}
                 {...register(name, {
                     required: true,
-                    maxLength: type === 'tel' ? 12 : 80,
+                    maxLength: maxLength,
                     pattern: validationPattern,
                 })}
                 aria-invalid={error ? 'true' : 'false'}
+            
             />
         </div>
     );

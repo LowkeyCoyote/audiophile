@@ -1,19 +1,22 @@
-import { HTMLAttributes } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import  {ItemState}  from "../../types/types"
 import Button from '@components/shared/ui/Buttton';
 
-const CartCheckout = ({ className }: HTMLAttributes<HTMLDivElement>) => {
+type CartCheckoutProps = {
+    submitForm : () => void
+} 
+
+
+const CartCheckout = ({submitForm} : CartCheckoutProps ) => {
+  
     const cart = useSelector((state: RootState) => state.cart.items);
- 
 
     const getTotalPrice = (cart : ItemState[]) => {
       return cart.reduce((acc : number, curval :ItemState) => (
           acc += parseInt(curval.price) * curval.quantity
       ), 0)
     }
-
 
     const renderProductImages = (slug: string) => {
         return `/src/assets/shared/cart/image-${slug}.jpg`;
@@ -64,7 +67,8 @@ const CartCheckout = ({ className }: HTMLAttributes<HTMLDivElement>) => {
 
 
             <Button
-            className='w-full'
+            className='w-full'  
+            onClick={(submitForm)} 
             >
                 <p>Continue and pay</p>
             </Button>

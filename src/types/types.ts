@@ -43,6 +43,19 @@ export type CartState =  {
   items : ItemState[]
 }
 
+export type FormData = {
+  name: string;
+  email: string;
+  tel: string;
+  address: string;
+  zipCode: string;
+  city: string;
+  country: string;
+  payment: 'emoney' | 'cashOnDelivery';
+  eMoneyNumber : string;
+  eMoneyPIN : string;
+};
+
 
 
 
