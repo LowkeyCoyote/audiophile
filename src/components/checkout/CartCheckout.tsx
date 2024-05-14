@@ -7,7 +7,6 @@ type CartCheckoutProps = {
     submitForm : () => void
 } 
 
-
 const CartCheckout = ({submitForm} : CartCheckoutProps ) => {
   
     const cart = useSelector((state: RootState) => state.cart.items);

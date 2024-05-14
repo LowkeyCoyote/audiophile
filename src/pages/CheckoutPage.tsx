@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 import CartCheckout from '@components/checkout/CartCheckout';
 import FormCheckout from '@components/checkout/FormCheckout';
-import { useRef, MutableRefObject } from 'react';
+import { useRef, RefObject  } from 'react';
 
 const CheckoutPage = () => {
-    const submitRef = useRef<HTMLButtonElement>();
-    const submitForm = (submitRef : MutableRefObject<HTMLButtonElement | undefined> ) => {
-        console.log(submitRef.current)
-        if (submitRef.current) {
+    const submitRef  = useRef<HTMLButtonElement>(null!);
+    const submitForm = (submitRef : RefObject<HTMLButtonElement>) => {
+        if (submitRef && submitRef.current) {
             submitRef.current.click();
         }
     };
