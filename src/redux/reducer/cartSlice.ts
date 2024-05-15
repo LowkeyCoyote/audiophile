@@ -25,16 +25,18 @@ const cartSlice = createSlice({
         clearCart: (state) => {
             state.items = []
         },
-        increase: (state, {payload}) => {
-            const cartItem = state.items.find((item) => item.idProduct === payload.idProduct);
-            if(cartItem){
+        increase: (state, action) => {
+            const cartItem = state.items.find((item) => item.idProduct === action.payload);
+            if(cartItem && cartItem.quantity < 99){
                 cartItem.quantity = cartItem.quantity + 1
             }
         },
-        decrease: (state, {payload}) => {
-            const cartItem = state.items.find((item) => item.idProduct === payload.id);
-            if(cartItem){
-                cartItem.quantity = cartItem.quantity - 1
+        decrease: (state, action) => {
+            const cartItemIndex = state.items.findIndex((item) => item.idProduct === action.payload);
+            if (state.items[cartItemIndex].quantity === 1) {
+                state.items.splice(cartItemIndex, 1);
+            } else {
+                state.items[cartItemIndex].quantity -= 1;
             }
         },
         addToCart: (state, action : PayloadAction<ItemState>) => {

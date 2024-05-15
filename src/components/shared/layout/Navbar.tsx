@@ -1,13 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logoNavbar from '@assets/shared/logo/logo.svg';
 import iconCart from '@assets/shared/icons/icon-cart.svg';
 import iconHamburger from '@assets/shared/icons/icon-hamburger.svg';
+import Modal from '../ui/Modal';
+import Cart from '@components/shared/Cart';
 import { useState } from 'react';
-import CategoryLinks from '../CategoryLinks';
-import Modal from '@components/shared/ui/Modal';
+import useModalScrollLock from '@hooks/useModalScrollLock';
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
+
     const [isOpen, setIsOpen] = useState(false);
+    const [cartVisible, setCartVisible] = useState(false);
+    useModalScrollLock(cartVisible);
+
+    const goToCheckout = () => {
+        setCartVisible(false);
+        navigate('/checkout')
+    }
 
     const toggleNavbar = () => {
         setIsOpen(!isOpen);
@@ -41,7 +52,7 @@ const Navbar = () => {
                         <li key={index}>
                             <Link
                                 to={link.path}
-                                className="text-[13px] uppercase tracking-[2px] font-semibold md:hidden"
+                                className="text-[13px]  uppercase tracking-[2px] font-semibold md:hidden"
                             >
                                 {link.text}
                             </Link>
@@ -49,15 +60,20 @@ const Navbar = () => {
                     ))}
                 </ul>
 
-                <img src={iconCart} alt="cart" />
+                <img
+                    src={iconCart}
+                    alt="cart"
+                    onClick={() => setCartVisible(!cartVisible)}
+                />
+                {cartVisible && (
+                    <Modal
+                        modalClose={() => setCartVisible(false)}
+                        modalPosition=" top-28 right-40 translate-y-0 translate-x-0 md:right-[4.5rem] sm:right-[3.5rem]"
+                    >
+                        <Cart goToCheckout={goToCheckout} />
+                    </Modal>
+                )}
             </div>
-            {isOpen ? (
-                <Modal>
-                    <CategoryLinks className="md:pb-16 md:pt-20 md:px-10 sm:px-8 sm:pt-20 sm:pb-16" />
-                </Modal>
-            ) : (
-                ''
-            )}
         </nav>
     );
 };

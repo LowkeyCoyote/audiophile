@@ -3,11 +3,13 @@ import Button from '@components/shared/ui/Buttton';
 
 import useIsMobile from '@hooks/useIsMobile';
 import useIsTablet from '@hooks/useIsTablet';
-import {  useDispatch } from 'react-redux';
+import {  useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/reducer/cartSlice';
 import { twMerge } from 'tailwind-merge';
-import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
+import {ToastContainer, toast} from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
+
 
 interface ProductHomeProps extends HTMLAttributes<HTMLDivElement> {
     idProduct: number;
@@ -36,20 +38,17 @@ const ProductCard = ({
     const dispatch = useDispatch();
 
     let [quantity, setQuantity] = useState<number>(1);
-    let [success, setSuccess] = useState(false);
 
     const incrementQuantity = () => {
         if (quantity < 9) {
             quantity = quantity + 1;
             setQuantity(quantity);
-            setSuccess(false);
         }
     };
     const decrementQuantity = () => {
         if (quantity > 1) {
             quantity = quantity - 1;
             setQuantity(quantity);
-            setSuccess(false);
         }
     };
 
@@ -60,11 +59,13 @@ const ProductCard = ({
         price: number,
         cartName : string,
     ) => {
-        setSuccess(true);
         setQuantity(1);
         dispatch(
             addToCart({ idProduct, quantity, slug, price: price.toString(), cartName  }),
         );
+        toast.success('Your order has been add to cart', {
+            position: "bottom-right"
+        })
     };
 
     let isMobile = useIsMobile();
@@ -93,7 +94,7 @@ const ProductCard = ({
                 )}
                 <h2 className="mb-8 md:text-[28px] sm:w-1/2 sm:my-6">{name}</h2>
                 <p className="mb-8 opacity-50 sm:mb-6">{description}</p>
-                <p className="text-[25px] font-bold pb-12 sm:pb-8">{`$ ${price.toLocaleString('en-US', { minimumFractionDigits: 2 })}`}</p>
+                <p className="text-[25px] font-bold pb-12 sm:pb-8">{`$ ${price.toLocaleString('en-US')}`}</p>
                 <div className="flex gap-4 items-center">
                     <div className=" w-fit bg-very-light-grey h-[48px] px-4 flex ">
                         <button
@@ -125,11 +126,8 @@ const ProductCard = ({
                         Add to cart
                     </Button>
                 </div>
-                {success ? (
-                        <p className=' mt-2 text-peach'>Your order has been added to the cart</p>
-                    ) : (
-                        ''
-                    )}
+               <ToastContainer
+               />
             </div>
         </div>
     );

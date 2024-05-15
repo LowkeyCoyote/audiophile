@@ -14,7 +14,7 @@ interface FormFieldProps {
 const FormField: React.FC<FormFieldProps> = ({ label, name, type, placeholder, error, register, column, validationPattern }) => {
 
 
-    let maxLength = 80; // Valeur par défaut pour maxLength
+    let maxLength = 80; 
 
     if (name === "eMoneyPIN") {
         maxLength = 4;

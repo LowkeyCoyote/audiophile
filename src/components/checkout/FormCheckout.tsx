@@ -6,17 +6,16 @@ import { FormValues } from '../../types/types';
 
 type FormCheckoutProps = {
     submitRef: MutableRefObject<HTMLButtonElement>;
+    onSubmit: () => void;
 };
 
-const FormCheckout = ({ submitRef }: FormCheckoutProps) => {
+const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
     const [selectedPayment, setSelectedPayment] = useState<'emoney' | 'cashOnDelivery'>('emoney');
 
     const { register,handleSubmit, formState: { errors }, } = useForm<FormValues>({
         mode: 'onChange',
         reValidateMode: 'onSubmit',
     });
-
-    const onSubmit = (data: FormValues) => console.log(data);
 
     return (
         <div className="p-12 bg-white rounded-lg sm:p-6">
@@ -193,6 +192,7 @@ const FormCheckout = ({ submitRef }: FormCheckoutProps) => {
                     type="submit"
                     style={{ display: 'none' }}
                 />
+           
             </form>
         </div>
     );
