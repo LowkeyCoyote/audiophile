@@ -51,7 +51,7 @@ const Navbar = () => {
                         <li key={index}>
                             <Link
                                 to={link.path}
-                                className="text-[13px] font-semibold uppercase tracking-[2px] duration-75 ease-in-out hover:text-peach md:hidden"
+                                className="text-[13px] font-semibold uppercase tracking-[2px] duration-75 ease-in-out hover:text-dark-peach md:hidden"
                             >
                                 {link.text}
                             </Link>

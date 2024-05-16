@@ -28,7 +28,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
             <h3 className="pb-10 pt-1.5 sm:pb-8">Checkout</h3>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-                <p className="tracking-wide mb-4 uppercase text-dark-peach">
+                <p className="subtitle text-dark-peach">
                     Billing details
                 </p>
 
@@ -41,7 +41,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         error={errors.name && 'Wrong Format'}
                         register={register}
                         column="col-1"
-                        validationPattern={/^.{0,50}$/}
+                        validationPattern={/^[a-zA-ZÀ-ÿ'-]{1,25}(?:\s[a-zA-ZÀ-ÿ'-]{1,25})?$/}
                     />
                     <FormField
                         label="Email Address"
@@ -64,7 +64,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         validationPattern={/^[0-9\s\-()+]+$/}
                     />
                 </div>
-                <p className="tracking-wide mb-4 uppercase text-dark-peach">
+                <p className="subtitle text-dark-peach">
                     Shipping info
                 </p>
                 <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-1">
@@ -110,7 +110,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                     />
                 </div>
 
-                <p className="tracking-wide mb-4 uppercase text-dark-peach">
+                <p className="subtitle text-dark-peach">
                     payment details
                 </p>
                 <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-1">
@@ -181,7 +181,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                                 src={cashOnDeliveryIcon}
                                 alt="cash on delivery"
                             />
-                            <p className="text-[15px] opacity-50">
+                            <p>
                                 The ‘Cash on Delivery’ option enables you to pay
                                 in cash when our delivery courier arrives at
                                 your residence. Just make sure your address is

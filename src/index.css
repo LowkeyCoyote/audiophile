@@ -45,7 +45,7 @@
     }
 
     @media screen and (max-width: 1024px) {
-        .overline {
+        .overlineText {
             @apply text-overline-tablet tracking-overline-tablet;
         }
     }

@@ -1,8 +1,12 @@
+/* reset */
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* toastify */
 
 .Toastify__toast-icon > svg:first-child{
   fill: #fbaf85;
@@ -12,11 +16,22 @@
   background: #fbaf85 !important;
 }
 
+
+/* block while modal is open */
+
+.block-scroll {
+  overflow: hidden;
+}
+
+
+/* text styling */
+
 .overlineText{
   font-size: 14px;
   text-transform: uppercase;
   line-height: 19px;
   letter-spacing: 10px;
+
 }
 
 .subtitle{
@@ -24,6 +39,7 @@
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
+  opacity: 1 !important;
 }
 
 
@@ -60,11 +76,6 @@
   border-radius: 8px;
 }
 
-label{
-  font-size: 12px;
-  padding-left: 2px;
-}
-
 .inputFormCheckoutRadio{
   border: #CFCFCF 1px solid;
   padding: 23px;
@@ -78,7 +89,10 @@ label{
   color: #D87D4A;
 }
 
-
+.labelForm{
+  font-size: 12px;
+  padding-left: 2px;
+}
 
 .inputFormCheckoutRadio input[type="radio"] {
   accent-color: #D87D4A;
@@ -89,7 +103,7 @@ label{
 }
 
 
-
+/* footer */
 
 .iconFooter:hover{
   fill : #D87D4A;
@@ -101,6 +115,14 @@ label{
   fill : #D87D4A;
   transition: all ease-in-out 0.1s;
 }
+
+.linkFooter img:hover{
+  filter : contrast(60%) sepia(1) hue-rotate(306deg) saturate(1000%);
+  transition: all ease-in-out 0.5;
+}
+
+
+/* grid home */
 
 
 .first-section-grid-home{
@@ -161,12 +183,5 @@ label{
 }
 
 
-.block-scroll {
-  overflow: hidden;
-}
 
 
-.linkFooter img:hover{
-  filter : contrast(60%) sepia(1) hue-rotate(306deg) saturate(1000%);
-  transition: all ease-in-out 0.5;
-}

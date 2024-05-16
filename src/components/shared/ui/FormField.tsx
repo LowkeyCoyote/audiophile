@@ -31,11 +31,11 @@ const FormField: React.FC<FormFieldProps> = ({ label, name, type, placeholder, e
     return (
         <div className={column}>
             <div className="flex items-center justify-between mb-2">
-                <label htmlFor={name} className="flex flex-col font-bold ">
+                <label htmlFor={name} className="flex flex-col font-bold labelForm ">
                     {label}
                 </label>
                 {error ? (
-                    <p className="text-[12px] text-[#CD2C2C]" role="alert">
+                    <p className="text-[12px] text-[#CD2C2C] opacity-100" role="alert">
                         {error}
                     </p>
                 ) : (
@@ -45,7 +45,7 @@ const FormField: React.FC<FormFieldProps> = ({ label, name, type, placeholder, e
                 )}
             </div>
             <input
-                className={`inputFormCheckout w-full ${error ? '!outline-[#CD2C2C]' : ''}`}
+                className={`inputFormCheckout w-full ${error ? '!outline-[#CD2C2C] !outline-2' : ''}`}
                 type={type}
                 placeholder={placeholder}
                 maxLength= {maxLength}
