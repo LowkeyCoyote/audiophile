@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 
-import Button from '@components/shared/ui/Buttton';
+import Button from '@components/shared/ui/Button';
 
 import useIsMobile from '@hooks/useIsMobile';
 import useIsTablet from '@hooks/useIsTablet';

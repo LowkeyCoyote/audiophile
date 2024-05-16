@@ -28,11 +28,11 @@ const ProductDetails = ({ features, includes }: ProductGridImgProps) => {
                 <h3 className="mb-8 md:w-1/2 sm:mb-6 sm:w-full ">In the box</h3>
                 <div className=" md:w-1/2 sm:w-full">
                     {includes.map(({ quantity, item }, index) => (
-                        <p className="mb-2" key={index}>
-                            <span className="font-bold text-dark-peach opacity-100">
+                        <p className="mb-2 opacity-100" key={index}>
+                            <span className="font-bold text-dark-peach ">
                                 {quantity.toString()}x
                             </span>{' '}
-                            <span className="ml-6">{item}</span>
+                            <span className="ml-6 opacity-50">{item}</span>
                         </p>
                     ))}
                 </div>

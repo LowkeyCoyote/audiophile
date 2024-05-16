@@ -10,7 +10,7 @@ import useModalScrollLock from '@hooks/useModalScrollLock';
 const Navbar = () => {
     const navigate = useNavigate();
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [cartIsOpen, setCartIsOpen] = useState(false);
     const [cartVisible, setCartVisible] = useState(false);
     useModalScrollLock(cartVisible);
 
@@ -20,7 +20,7 @@ const Navbar = () => {
     };
 
     const toggleNavbar = () => {
-        setIsOpen(!isOpen);
+        setCartIsOpen(!cartIsOpen);
         document.body.classList.toggle('block-scroll');
     };
 

@@ -1,4 +1,4 @@
-import Button from '@components/shared/ui/Buttton';
+import Button from '@components/shared/ui/Button';
 
 const HeroHome = () => {
     return (
@@ -9,10 +9,10 @@ const HeroHome = () => {
     "
         >
             <div className="md:text-center">
-                <p className="overlineText mb-6 text-white opacity-50">
+                <p className="overlineText mb-6">
                     NEW PRODUCT
                 </p>
-                <h1 className="mb-6 w-1/2 text-white md:w-full">
+                <h1 className="mb-6 w-1/2 md:w-full">
                     XX99 Mark II Headphones
                 </h1>
                 <p className="mb-10 w-3/12 opacity-75 md:w-full sm:px-6">

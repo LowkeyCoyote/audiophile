@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
-import Button from '@components/shared/ui/Buttton';
+import Button from '@components/shared/ui/Button';
 
 import getCartTotalPrice from '@utils/getCartTotalPrice';
 

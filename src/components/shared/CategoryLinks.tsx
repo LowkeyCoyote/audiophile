@@ -1,4 +1,4 @@
-import Button from './ui/Buttton';
+import Button from './ui/Button';
 import { HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 

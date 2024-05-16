@@ -1,8 +1,7 @@
 import { useState } from 'react';
-
 import { CartState } from '../../types/types';
 import getCartTotalPrice from '@utils/getCartTotalPrice';
-import Button from '@components/shared/ui/Buttton';
+import Button from '@components/shared/ui/Button';
 
 import iconOrderConfirmation from '@assets/checkout/icon-order-confirmation.svg';
 

@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart, increase, decrease } from '../../redux/reducer/cartSlice';
 import { RootState } from 'src/redux/store';
-import Button from '@components/shared/ui/Buttton';
+import Button from '@components/shared/ui/Button';
 import getCartTotalPrice from '@utils/getCartTotalPrice';
 
 type CartProps = {

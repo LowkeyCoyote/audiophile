@@ -9,11 +9,11 @@
 /* toastify */
 
 .Toastify__toast-icon > svg:first-child{
-  fill: #fbaf85;
+  fill: #D87D4A;
 }
 
 .Toastify__progress-bar--success{
-  background: #fbaf85 !important;
+  background: #D87D4A !important;
 }
 
 
