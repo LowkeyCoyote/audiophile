@@ -49,6 +49,7 @@ const FormField: React.FC<FormFieldProps> = ({ label, name, type, placeholder, e
                 type={type}
                 placeholder={placeholder}
                 maxLength= {maxLength}
+                id={name}
                 {...register(name, {
                     required: true,
                     maxLength: maxLength,

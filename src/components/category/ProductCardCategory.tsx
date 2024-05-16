@@ -1,4 +1,5 @@
 import { HTMLAttributes } from 'react';
+
 import Button from '@components/shared/ui/Buttton';
 
 import useIsMobile from '@hooks/useIsMobile';
@@ -27,38 +28,30 @@ const ProductCardCategory = ({
         !isMobile && isTablet ? 'tablet' : isMobile ? 'mobile' : 'desktop';
 
     const renderProductImages = (slug: string) => {
-        return `/src/assets/shared/product/${slug}/image-category-page-preview-${imageSizeSuffix}.jpg`;
+        return `/assets/shared/product/${slug}/image-category-page-preview-${imageSizeSuffix}.jpg`;
     };
 
     return (
         <div
-            className={`flex items-center ${reverse ? 'flex-row-reverse' : ''}
-    md:flex-col
-    `}
+            className={`flex items-center ${reverse ? 'flex-row-reverse' : ''} md:flex-col`}
         >
             <img
-                className="rounded-lg w-[46%] md:w-full md:h-[46%]"
+                className="w-[46%] rounded-lg md:h-[46%] md:w-full"
                 src={renderProductImages(slug)}
                 alt=""
             />
             <div
-                className={`text-left w-[54%] ${reverse ? 'pr-32' : 'pl-32'} md:w-full md:px-16 md:text-center
-        md:pt-12 md:h-[54%] sm:pt-8 sm:px-0
-      `}
+                className={`w-[54%] text-left ${reverse ? 'pr-32' : 'pl-32'} md:h-[54%] md:w-full md:px-16 md:pt-12 md:text-center sm:px-0 sm:pt-8`}
             >
                 {isNew ? (
-                    <p className="overlineText text-peach mb-4 sm:mb-6 sm:px-16 ">
+                    <p className="overlineText mb-4 sm:mb-6 sm:px-16 ">
                         New Product
                     </p>
                 ) : (
                     ''
                 )}
-                <h2 className="mb-8 sm:mb-6 sm:text-h2-mobile sm:leading-5 sm:px-16 ">
-                    {name}
-                </h2>
-                <p className="opacity-50 mb-10 md:mb-6 sm:mb-6">
-                    {description}
-                </p>
+                <h2 className="mb-8 sm:mb-6 sm:px-16 ">{name}</h2>
+                <p className="mb-10 md:mb-6 sm:mb-6"> {description}</p>
                 <Button link={`/product/${slug}`}>See Product</Button>
             </div>
         </div>

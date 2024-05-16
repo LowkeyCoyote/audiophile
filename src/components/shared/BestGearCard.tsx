@@ -13,13 +13,18 @@ const BestGearCard = ({ className }: HTMLAttributes<HTMLDivElement>) => {
     let isTablet = useIsTablet();
 
     return (
-        <div className={twMerge(`flex items-center justify-between md:flex-col-reverse`, className)}>
-            <div className="pr-32 py-36 md:px-14 md:pb-24 md:pt-16 md:text-center sm:px-0 sm:pt-10">
+        <div
+            className={twMerge(
+                `flex items-center justify-between md:flex-col-reverse`,
+                className,
+            )}
+        >
+            <div className="pr-32 pt-36 md:px-14 md:pb-24 md:pt-16 md:text-center sm:px-0 sm:pt-10">
                 <h2>
                     Bringing you the <span className="text-peach">best </span>
                     audio gear
                 </h2>
-                <p className="pt-8 ">
+                <p className="pt-8">
                     Located at the heart of New York City, Audiophile is the
                     premier store for high end headphones, earphones, speakers,
                     and audio accessories. We have a large showroom and luxury

@@ -10,25 +10,29 @@ type FormCheckoutProps = {
 };
 
 const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
-    const [selectedPayment, setSelectedPayment] = useState<'emoney' | 'cashOnDelivery'>('emoney');
+    const [selectedPayment, setSelectedPayment] = useState<
+        'emoney' | 'cashOnDelivery'
+    >('emoney');
 
-    const { register,handleSubmit, formState: { errors }, } = useForm<FormValues>({
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FormValues>({
         mode: 'onChange',
         reValidateMode: 'onSubmit',
     });
 
     return (
-        <div className="p-12 bg-white rounded-lg sm:p-6">
-            <h3 className="text-h3 uppercase font-bold pt-1.5 pb-10 sm:text-h4 sm:pb-8">
-                Checkout
-            </h3>
+        <div className="rounded-lg bg-white p-12 sm:p-6">
+            <h3 className="pb-10 pt-1.5 sm:pb-8">Checkout</h3>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-                <p className="text-dark-peach uppercase tracking-wide mb-4">
+                <p className="tracking-wide mb-4 uppercase text-dark-peach">
                     Billing details
                 </p>
 
-                <div className="grid grid-cols-2 gap-4 mb-12 sm:grid-cols-1">
+                <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-1">
                     <FormField
                         label="Name"
                         name="name"
@@ -60,10 +64,10 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         validationPattern={/^[0-9\s\-()+]+$/}
                     />
                 </div>
-                <p className="text-dark-peach uppercase tracking-wide mb-4">
+                <p className="tracking-wide mb-4 uppercase text-dark-peach">
                     Shipping info
                 </p>
-                <div className="grid grid-cols-2 gap-4 mb-12 sm:grid-cols-1">
+                <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-1">
                     <FormField
                         label="Address"
                         name="address"
@@ -106,14 +110,14 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                     />
                 </div>
 
-                <p className="text-dark-peach uppercase tracking-wide mb-4">
+                <p className="tracking-wide mb-4 uppercase text-dark-peach">
                     payment details
                 </p>
-                <div className="grid grid-cols-2 gap-4 mb-12 sm:grid-cols-1">
-                    <p className="col-1 font-bold text-[12px]">
+                <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-1">
+                    <p className="col-1 text-[12px] font-bold">
                         Payment Method
                     </p>
-                    <div className="col-2 sm:col-span-2 inputFormCheckoutRadio">
+                    <div className="col-2 inputFormCheckoutRadio sm:col-span-2">
                         <input
                             type="radio"
                             id="emoney"
@@ -128,7 +132,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                             e-Money
                         </label>
                     </div>
-                    <div className="col-start-2 sm:col-span-2 inputFormCheckoutRadio">
+                    <div className="inputFormCheckoutRadio col-start-2 sm:col-span-2">
                         <input
                             type="radio"
                             id="cashOnDelivery"
@@ -146,7 +150,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         </label>
                     </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4 mb-12 sm:grid-cols-1">
+                <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-1">
                     {selectedPayment === 'emoney' && (
                         <>
                             <FormField
@@ -172,12 +176,12 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         </>
                     )}
                     {selectedPayment === 'cashOnDelivery' && (
-                        <div className="flex items-center col-span-2 gap-8">
+                        <div className="col-span-2 flex items-center gap-8">
                             <img
                                 src={cashOnDeliveryIcon}
                                 alt="cash on delivery"
                             />
-                            <p className='text-[15px] opacity-50'>
+                            <p className="text-[15px] opacity-50">
                                 The ‘Cash on Delivery’ option enables you to pay
                                 in cash when our delivery courier arrives at
                                 your residence. Just make sure your address is
@@ -191,8 +195,9 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                     ref={submitRef}
                     type="submit"
                     style={{ display: 'none' }}
-                />
-           
+                >
+                    submit
+                </button>
             </form>
         </div>
     );

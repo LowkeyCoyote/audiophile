@@ -1,22 +1,69 @@
 @tailwind base;
-@tailwind components; 
+@tailwind components;
 @tailwind utilities;
 
+@layer base {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-bold uppercase;
+    }
 
-@layer base{
-  h1 {
-    @apply text-h1 uppercase leading-10 tracking-wide font-bold
-  }
+    h1 {
+        @apply text-h1-desktop  leading-h1 tracking-h1;
+    }
 
-  h2 {
-    @apply text-h2 uppercase tracking-wide leading-8 font-bold
-  }
+    h2 {
+        @apply text-h2 leading-h2 tracking-h2;
+    }
 
-  h6 {
-    @apply text-h6 leading-4 tracking-normal-wide font-bold
-  }
+    h3 {
+        @apply text-h3 leading-h3 tracking-h3;
+    }
 
-  p{
-    @apply  text-p leading-5
-  }
+    h4 {
+        @apply text-h4 leading-h4 tracking-h4;
+    }
+
+    h5 {
+        @apply text-h5 leading-h5 tracking-h5;
+    }
+
+    h6 {
+        @apply text-h6 leading-h6 tracking-h6;
+    }
+
+    .overlineText {
+        @apply text-overline uppercase leading-overline tracking-overline text-peach;
+    }
+
+    p {
+        @apply text-p leading-p opacity-50;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .overline {
+            @apply text-overline-tablet tracking-overline-tablet;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        h1 {
+            @apply text-h1-mobile leading-h1-mobile tracking-h1-mobile;
+        }
+
+        h2 {
+            @apply text-h2-mobile tracking-h2-mobile;
+        }
+        h3 {
+            @apply text-h3-mobile tracking-h3-mobile;
+        }
+
+        .overline {
+            @apply text-overline tracking-overline;
+        }
+    }
 }

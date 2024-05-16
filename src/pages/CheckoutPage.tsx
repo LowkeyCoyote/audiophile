@@ -14,11 +14,9 @@ const CheckoutPage = () => {
     const dispatch = useDispatch();
     const cart = useSelector((state: RootState) => state.cart.items);
 
-
     const [openModal, setOpenModal] = useState(false);
-    const [orderDetails, setOrderDetails] = useState< ItemState[]>(cart)
+    const [orderDetails, setOrderDetails] = useState<ItemState[]>(cart);
     useModalScrollLock(openModal);
-
 
     const submitRef = useRef<HTMLButtonElement>(null!);
 
@@ -30,16 +28,16 @@ const CheckoutPage = () => {
 
     const successCommand = () => {
         setOpenModal(true);
-        setOrderDetails(cart)
+        setOrderDetails(cart);
         dispatch(clearCart());
     };
 
     return (
-        <section className=" bg-[#F2F2F2] px-40 pt-20 pb-36 md:px-10 md:pt-12 md:pb-28 sm:pt-4 sm:px-6 sm:pb-24">
+        <section className=" bg-[#F2F2F2] px-40 pb-36 pt-20 md:px-10 md:pb-28 md:pt-12 sm:px-6 sm:pb-24 sm:pt-4">
             <Link to={'/'} className="block w-fit">
-                <p className="opacity-50 w-fit">Go back</p>
+                <p className="w-fit opacity-50">Go back</p>
             </Link>
-            <div className="flex pt-14 md:pt-6 gap-7 md:flex-col md:gap-8">
+            <div className="flex gap-7 pt-14 md:flex-col md:gap-8 md:pt-6">
                 <div className=" w-[68%] md:w-full">
                     <FormCheckout
                         submitRef={submitRef}
@@ -51,9 +49,7 @@ const CheckoutPage = () => {
                 </div>
                 {openModal && (
                     <Modal modalClose={() => setOpenModal(false)}>
-                        <ConfirmationCheckout
-                        items={orderDetails}
-                        />
+                        <ConfirmationCheckout items={orderDetails} />
                     </Modal>
                 )}
             </div>

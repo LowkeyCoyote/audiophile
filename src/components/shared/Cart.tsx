@@ -4,25 +4,22 @@ import { RootState } from 'src/redux/store';
 import Button from '@components/shared/ui/Buttton';
 import getCartTotalPrice from '@utils/getCartTotalPrice';
 
-
 type CartProps = {
-    goToCheckout : () => void
-}
+    goToCheckout: () => void;
+};
 
-const Cart = ({goToCheckout} : CartProps) => {
-
-
+const Cart = ({ goToCheckout }: CartProps) => {
     const dispatch = useDispatch();
     const cart = useSelector((state: RootState) => state.cart.items);
 
     const renderProductImages = (slug: string) => {
-        return `/src/assets/shared/cart/image-${slug}.jpg`;
+        return `/assets/shared/cart/image-${slug}.jpg`;
     };
 
     return (
-        <div className="p-8 rounded-lg text-black w-[377px]">
-            <div className="flex justify-between items-center pb-8">
-                <p className="text-[18px] font-semibold tracking-wide uppercase">{`cart ( ${cart.length} )`}</p>
+        <div className="w-[377px] rounded-lg p-8 text-black sm:w-[327px] sm:p-7">
+            <div className="flex items-center justify-between pb-8">
+                <p className="tracking-wide text-[18px] font-semibold uppercase">{`cart ( ${cart.length} )`}</p>
                 <p
                     className="text-[15px] font-semibold uppercase text-dark-peach"
                     onClick={() => dispatch(clearCart())}
@@ -31,7 +28,7 @@ const Cart = ({goToCheckout} : CartProps) => {
                 </p>
             </div>
             {cart.length === 0 && (
-                <p className="text-[20px] uppercase font-bold tracking-wide">
+                <p className="tracking-wide text-[20px] font-bold uppercase">
                     Your cart is empty
                 </p>
             )}
@@ -40,7 +37,7 @@ const Cart = ({goToCheckout} : CartProps) => {
                 cart.map((item) => (
                     <div
                         key={item.idProduct}
-                        className=" flex items-center justify-between mb-6"
+                        className=" mb-6 flex items-center justify-between"
                     >
                         <div className="flex items-center">
                             <img
@@ -48,27 +45,39 @@ const Cart = ({goToCheckout} : CartProps) => {
                                 src={renderProductImages(item.slug)}
                                 alt=""
                             />
-                            <div className="flex flex-col ml-4">
-                                <p className="text-[15px] font-bold">
+                            <div className="ml-4 flex flex-col">
+                                <p className="font-bold opacity-100">
                                     {item.cartName}
                                 </p>
                                 <p className="text-[14px] font-bold opacity-50">{`$ ${parseInt(item.price).toLocaleString('en-US')}`}</p>
                             </div>
                         </div>
-                        <div className=" w-fit bg-very-light-grey h-[48px] px-4 flex  ">
+                        <div className=" flex  h-[48px] w-fit items-center bg-very-light-grey px-4  ">
                             <button
-                                className="w-[24px] ] text-[14px] opacity-50 hover:text-dark-peach"
+                                className="w-[24px] text-[13px] opacity-50 hover:text-dark-peach"
                                 onClick={() =>
                                     dispatch(decrease(item.idProduct))
                                 }
                             >
                                 -
                             </button>
+                            <label
+                                htmlFor={item.cartName}
+                                style={{
+                                    visibility: 'hidden',
+                                    fontSize: '0',
+                                    width: '0',
+                                }}
+                            >
+                                quantity
+                            </label>
                             <input
                                 readOnly
-                                className="mx-auto w-[40px] text-[14px] font-bold text-center bg-very-light-grey focus:outline-none cursor-pointer border-none text-black p-0"
+                                className="mx-auto w-[40px] cursor-pointer border-none bg-very-light-grey p-0 text-center text-[14px] font-bold text-black focus:outline-none"
                                 value={item.quantity}
                                 type="number"
+                                name={item.cartName}
+                                id={item.cartName}
                             />
                             <button
                                 className="w-[24px] text-[13px] opacity-50 hover:text-dark-peach "
@@ -82,15 +91,12 @@ const Cart = ({goToCheckout} : CartProps) => {
                     </div>
                 ))}
 
-            <div className="flex justify-between items-center mt-2 mb-6">
-                <p className="text-[15px] opacity-50 uppercase">Total</p>
-                <p className="text-[18px] font-bold">{`$ ${getCartTotalPrice(cart).toLocaleString('en-US')}`}</p>
+            <div className="mb-6 mt-2 flex items-center justify-between">
+                <p className="uppercase">Total</p>
+                <h6 className="font-bold tracking-normal">{`$ ${getCartTotalPrice(cart).toLocaleString('en-US')}`}</h6>
             </div>
 
-            <Button 
-            className="w-full"
-            onClick={goToCheckout}
-            >
+            <Button className="w-full" onClick={goToCheckout}>
                 Checkout
             </Button>
         </div>

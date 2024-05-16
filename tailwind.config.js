@@ -23,20 +23,33 @@ export default {
     },
 
     fontSize : {
-      'h1' : '58px',
+      'h1-desktop' : '58px',
+      'h1-mobile' : '36px',
       'h2' : '40px',
-      'h2-mobile' : '22px',
+      'h2-mobile' : '28px',
       'h3' : '32px',
+      'h3-mobile': '24px',
       'h4' : '28px',
       'h5' : '24px',
       'h6' : '18px',
+      'overline' : '14px',
+      'overline-tablet' : '12px',
+      'subtitle' : '13px',
       'p' : '15px',
     },
     lineHeight : {
-      '10' : '58px',
-      '8' : '44px',
+      'h1' : '58px',
+      'h2' : '44px',
+      'h3' : '36px',
+      'h4' : '38px',
+      'h5' : '33px',
+      'h6' : '24px',
+      'overline' : '19px',
+      'subtitle' : '25px',
+      'p' : '25px',
       '5' : '25px',
-      '4' :'24px'
+      '4' :'24px',
+      'h1-mobile' : '44px'
 
     },
 
@@ -54,8 +67,6 @@ export default {
       'grid-home-zx9-desktop' : "url('/src/assets/home/image-speaker-zx9-desktop.png')",
       'grid-home-zx9-tablet' : "url('/src/assets/home/image-speaker-zx9-tablet.png')",
       'grid-home-zx9-mobile' : "url('/src/assets/home/image-speaker-zx9-mobile.png')"
-
-
     },
     
     
@@ -67,11 +78,21 @@ export default {
 		},
 
     letterSpacing : {
-      'wider' : '2px',
-      'wide' : '1.5px',
-      'normal-wide' : '1.3px',
-      'normal' : '1.15px'
+      'h1' : '2px',
+      'h1-mobile' : '1.3px', 
+      'h2' : '1.5px',
+      'h2-mobile' : '1px',
+      'h3' : '1.15px',
+      'h3-mobile' : '0.9px',
+      'h4' : '2px',
+      'h5' : '1.7px',
+      'h6' : '1.3px',
+      'overline' : '10px',
+      'overline-tablet' : '8.5px',
+      'subtitle' : '1px',
+      'normal' : '0px'
     },
+  
 
 
 

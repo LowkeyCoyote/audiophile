@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+.Toastify__toast-icon > svg:first-child{
+  fill: #fbaf85;
+}
+
+.Toastify__progress-bar--success{
+  background: #fbaf85 !important;
+}
+
 .overlineText{
   font-size: 14px;
   text-transform: uppercase;
@@ -83,9 +91,6 @@ label{
 
 
 
-
-
-
 .iconFooter:hover{
   fill : #D87D4A;
   transition: all ease-in-out 0.1s;
@@ -96,10 +101,9 @@ label{
   fill : #D87D4A;
   transition: all ease-in-out 0.1s;
 }
-/*  bg-pattern-circle bg-[-12rem_1rem]">
-*/
 
-.zx9-grid-home{
+
+.first-section-grid-home{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -109,14 +113,52 @@ label{
   background-repeat: no-repeat;
   overflow: hidden;
   margin-bottom: 32px;
+  gap: 6rem;
+  background-position: -12rem 1rem;
+}
+
+.first-section-grid-home-img{
+  max-height: 493px;
+  max-width: 410px;
+  position: relative;
+  margin-bottom: -0.5rem;
 }
 
 @media screen and (max-width:1024px) {
-  .zx9-grid-home{
+  .first-section-grid-home{
     flex-direction: column;
+    background-position: center -16rem;
+    text-align: center;
+    max-height: 720px;
   }
-  
+  .first-section-grid-home-img{
+    max-height: 240px;
+    max-width: 200px;
+    margin-bottom: 0;
+
+  }
 } 
+
+
+@media screen and (max-width:640px){
+  .first-section-grid-home{
+    max-height: 600px;
+    background-position: center -20rem;
+    gap: 2rem;
+  }
+
+  .first-section-grid-home-img{
+    max-height: 215px;
+    max-width: 180px;
+    margin-bottom: 0;
+  }
+
+  .first-section-grid-home-img > img{
+    padding-top: 1.5rem;
+    
+  }
+
+}
 
 
 .block-scroll {
@@ -124,5 +166,7 @@ label{
 }
 
 
-
-
+.linkFooter img:hover{
+  filter : contrast(60%) sepia(1) hue-rotate(306deg) saturate(1000%);
+  transition: all ease-in-out 0.5;
+}

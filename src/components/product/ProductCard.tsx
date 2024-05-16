@@ -3,13 +3,12 @@ import Button from '@components/shared/ui/Buttton';
 
 import useIsMobile from '@hooks/useIsMobile';
 import useIsTablet from '@hooks/useIsTablet';
-import {  useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/reducer/cartSlice';
 import { twMerge } from 'tailwind-merge';
 import { RootState } from '../../redux/store';
-import {ToastContainer, toast} from "react-toastify"
-import "react-toastify/dist/ReactToastify.css";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface ProductHomeProps extends HTMLAttributes<HTMLDivElement> {
     idProduct: number;
@@ -18,7 +17,7 @@ interface ProductHomeProps extends HTMLAttributes<HTMLDivElement> {
     description: string;
     name: string;
     price: number;
-    cartName : string;
+    cartName: string;
 }
 
 const ProductCard = ({
@@ -29,11 +28,10 @@ const ProductCard = ({
     name,
     cartName,
     price,
-    className
+    className,
 }: ProductHomeProps) => {
-
     const cart = useSelector((state: RootState) => state.cart.items);
-    console.log(cart)
+    console.log(cart);
 
     const dispatch = useDispatch();
 
@@ -57,15 +55,21 @@ const ProductCard = ({
         quantity: number,
         slug: string,
         price: number,
-        cartName : string,
+        cartName: string,
     ) => {
         setQuantity(1);
         dispatch(
-            addToCart({ idProduct, quantity, slug, price: price.toString(), cartName  }),
+            addToCart({
+                idProduct,
+                quantity,
+                slug,
+                price: price.toString(),
+                cartName,
+            }),
         );
         toast.success('Your order has been add to cart', {
-            position: "bottom-right"
-        })
+            position: 'bottom-right',
+        });
     };
 
     let isMobile = useIsMobile();
@@ -75,41 +79,59 @@ const ProductCard = ({
         !isMobile && isTablet ? 'tablet' : isMobile ? 'mobile' : 'desktop';
 
     const renderProductImages = (slug: string) => {
-        return `/src/assets/shared/product/${slug}/image-product-${imageSizeSuffix}.jpg`;
+        return `/assets/shared/product/${slug}/image-product-${imageSizeSuffix}.jpg`;
     };
     return (
-        <div className={twMerge(`flex items-center sm:flex-col mb-40 sm:mb-20`, className)}>
+        <div
+            className={twMerge(
+                `mb-40 flex items-center sm:mb-20 sm:flex-col`,
+                className,
+            )}
+        >
             <img
-                className="rounded-lg w-[40%] sm:w-full"
+                className="w-[40%] rounded-lg sm:w-full"
                 src={renderProductImages(slug)}
                 alt=""
             />
-            <div className="text-left w-[60%] px-32 md:pl-16 md:pr-0 sm:w-full sm:pl-0">
+            <div className="w-[60%] px-32 text-left md:pl-16 md:pr-0 sm:w-full sm:pl-0">
                 {isNew ? (
-                    <p className="overlineText text-peach mb-4 md:text-[12px] sm:text-[14px] sm:px-0 sm:mt-8  ">
+                    <p className="overlineText mb-4 sm:mt-8 sm:px-0  ">
                         New Product
                     </p>
                 ) : (
                     ''
                 )}
-                <h2 className="mb-8 md:text-[28px] sm:w-1/2 sm:my-6">{name}</h2>
+                <h2 className="mb-8 sm:my-6 sm:w-1/2">{name}</h2>
                 <p className="mb-8 opacity-50 sm:mb-6">{description}</p>
-                <p className="text-[25px] font-bold pb-12 sm:pb-8">{`$ ${price.toLocaleString('en-US')}`}</p>
-                <div className="flex gap-4 items-center">
-                    <div className=" w-fit bg-very-light-grey h-[48px] px-4 flex ">
+                <h6 className="pb-12 sm:pb-8">{`$ ${price.toLocaleString('en-US')}`}</h6>
+                <div className="flex items-center gap-4">
+                    <div className=" flex h-[48px] w-fit bg-very-light-grey px-4 ">
                         <button
-                            className="w-[24px] ] text-[13px] opacity-50"
+                            className="w-[24px] text-[13px] opacity-50"
                             onClick={decrementQuantity}
                         >
                             -
                         </button>
+
+                        <label
+                            htmlFor="quantity"
+                            style={{
+                                visibility: 'hidden',
+                                fontSize: '0',
+                                width: '0',
+                            }}
+                        >
+                            quantity
+                        </label>
                         <input
                             readOnly
-                            className="mx-auto w-[40px] text-[13px] font-bold text-center bg-very-light-grey focus:outline-none cursor-pointer border-none text-black p-0"
+                            className=" w-[40px] cursor-pointer border-none bg-very-light-grey text-center text-[13px] font-bold text-black focus:outline-none "
                             value={quantity}
                             type="number"
-                            
+                            id="quantity"
+                            name="quantity"
                         />
+
                         <button
                             className="w-[24px] text-[13px] opacity-50"
                             onClick={incrementQuantity}
@@ -119,15 +141,20 @@ const ProductCard = ({
                     </div>
                     <Button
                         onClick={() =>
-                            addProductToCart(idProduct, quantity, slug, price, cartName)
+                            addProductToCart(
+                                idProduct,
+                                quantity,
+                                slug,
+                                price,
+                                cartName,
+                            )
                         }
-                        className='self-start max-h-[48px]'
+                        className="max-h-[48px] self-start"
                     >
                         Add to cart
                     </Button>
                 </div>
-               <ToastContainer
-               />
+                <ToastContainer />
             </div>
         </div>
     );
