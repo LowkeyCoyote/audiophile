@@ -44,7 +44,7 @@ const ProductCardCategory = ({
                 className={`w-[54%] text-left ${reverse ? 'pr-32' : 'pl-32'} md:h-[54%] md:w-full md:px-16 md:pt-12 md:text-center sm:px-0 sm:pt-8`}
             >
                 {isNew ? (
-                    <p className="overlineText opacity-100 mb-4 sm:mb-6 sm:px-16 ">
+                    <p className="overlineText !opacity-100 mb-4 sm:mb-6 sm:px-16 ">
                         New Product
                     </p>
                 ) : (

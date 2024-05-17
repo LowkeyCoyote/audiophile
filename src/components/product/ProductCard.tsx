@@ -96,7 +96,7 @@ const ProductCard = ({
             />
             <div className="w-[60%] px-32 text-left md:pl-16 md:pr-0 sm:w-full sm:pl-0">
                 {isNew ? (
-                    <p className="overlineText opacity-100 mb-4 sm:mt-8 sm:px-0  ">
+                    <p className="overlineText !opacity-100 mb-4 sm:mt-8 sm:px-0  ">
                         New Product
                     </p>
                 ) : (
