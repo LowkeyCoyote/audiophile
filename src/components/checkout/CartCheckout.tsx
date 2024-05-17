@@ -37,7 +37,7 @@ const CartCheckout = ({ submitForm }: CartCheckoutProps) => {
                                 />
                                 <div className="flex flex-col self-center pl-4 font-bold">
                                     <p className="opacity-100">{cartName}</p>
-                                    <p className="text-[14px] opacity-50">{`$ ${parseInt(price).toLocaleString('en-US')}`}</p>
+                                    <p className="text-[14px]">{`$ ${parseInt(price).toLocaleString('en-US')}`}</p>
                                 </div>
                             </div>
                             <p className="font-bold">x{quantity}</p>

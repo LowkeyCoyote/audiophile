@@ -30,42 +30,38 @@ const Cart = ({ goToCheckout }: CartProps) => {
             {cart.length === 0 && <h3>Your cart is empty</h3>}
 
             {cart.length !== 0 &&
-                cart.map(({idProduct, slug, cartName, price, quantity}) => (
+                cart.map(({ idProduct, slug, cartName, price, quantity }) => (
                     <>
                         <div
-                            key={
-                                idProduct}
+                            key={idProduct}
                             className=" mb-6 flex items-center justify-between"
                         >
                             <div className="flex items-center">
                                 <img
                                     className="w-[64px] rounded-lg"
-                                    src={renderProductImages(
-                                        slug)}
+                                    src={renderProductImages(slug)}
                                     alt=""
                                 />
                                 <div className="ml-4 flex flex-col">
                                     <p className="font-bold opacity-100">
-                                        {
-                                        cartName}
+                                        {cartName}
                                     </p>
                                     <p className="text-[14px] font-bold opacity-50">{`$ ${parseInt(
-                                        price).toLocaleString('en-US')}`}</p>
+                                        price,
+                                    ).toLocaleString('en-US')}`}</p>
                                 </div>
                             </div>
                             <div className=" flex  h-[48px] w-fit items-center bg-very-light-grey px-4  ">
                                 <button
                                     className="w-[24px] text-[13px] opacity-50 hover:text-dark-peach"
                                     onClick={() =>
-                                        dispatch(decrease(
-                                            idProduct))
+                                        dispatch(decrease(idProduct))
                                     }
                                 >
                                     -
                                 </button>
                                 <label
-                                    htmlFor={
-                                        cartName}
+                                    htmlFor={cartName}
                                     style={{
                                         visibility: 'hidden',
                                         fontSize: '0',
@@ -77,35 +73,31 @@ const Cart = ({ goToCheckout }: CartProps) => {
                                 <input
                                     readOnly
                                     className="mx-auto w-[40px] cursor-pointer border-none bg-very-light-grey p-0 text-center text-[14px] font-bold text-black focus:outline-none"
-                                    value={
-                                        quantity}
+                                    value={quantity}
                                     type="number"
-                                    name={
-                                        cartName}
-                                    id={
-                                        cartName}
+                                    name={cartName}
+                                    id={cartName}
                                 />
                                 <button
                                     className="w-[24px] text-[13px] opacity-50 hover:text-dark-peach "
                                     onClick={() =>
-                                        dispatch(increase(
-                                            idProduct))
+                                        dispatch(increase(idProduct))
                                     }
                                 >
                                     +
                                 </button>
                             </div>
                         </div>
-                        <div className="mb-6 mt-2 flex items-center justify-between">
-                            <p className="uppercase">Total</p>
-                            <h6 className="font-bold tracking-normal">{`$ ${getCartTotalPrice(cart).toLocaleString('en-US')}`}</h6>
-                        </div>
-
-                        <Button className="w-full" onClick={goToCheckout}>
-                            Checkout
-                        </Button>
                     </>
                 ))}
+            <div className="mb-6 mt-2 flex items-center justify-between">
+                <p className="uppercase">Total</p>
+                <h6 className="font-bold tracking-normal">{`$ ${getCartTotalPrice(cart).toLocaleString('en-US')}`}</h6>
+            </div>
+
+            <Button className="w-full" onClick={goToCheckout}>
+                Checkout
+            </Button>
         </div>
     );
 };

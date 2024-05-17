@@ -43,9 +43,6 @@ export type CartState =  {
   items : ItemState[]
 }
 
-
-
-
 export type FormValues = {
   name: string;
   email: string;

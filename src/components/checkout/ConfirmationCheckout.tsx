@@ -34,18 +34,21 @@ const ConfirmationCheckout = ({ items }: CartState) => {
             <div className="mb-12 flex w-full rounded-lg bg-very-light-grey sm:flex-col">
                 <div className="flex w-[57%] flex-col p-6 sm:w-full">
                     {!showOtherItems && (
-                        <div className="flex items-center justify-between border-b border-b-gray-border pb-3  font-bold ">
-                            <img
-                                className="w-[50px]"
-                                src={renderProductImages(items[0].slug)}
-                                alt=""
-                            />
-                            <div className="flex flex-col">
-                                <p className="opacity-100">
-                                    {items[0].cartName}
-                                </p>
-                                <p className="text-[14px]">{`$ ${parseInt(items[0].price).toLocaleString('en-US')}`}</p>
+                        <div className="flex items-center justify-between border-b border-b-gray-border pb-3 font-bold ">
+                            <div className="flex">
+                                <img
+                                    className="w-[50px]"
+                                    src={renderProductImages(items[0].slug)}
+                                    alt=""
+                                />
+                                <div className="flex flex-col pl-4">
+                                    <p className="opacity-100">
+                                        {items[0].cartName}
+                                    </p>
+                                    <p className="text-[14px]">{`$ ${parseInt(items[0].price).toLocaleString('en-US')}`}</p>
+                                </div>
                             </div>
+
                             <p className="self-baseline text-[14px]">
                                 x{items[0].quantity}
                             </p>
@@ -55,17 +58,20 @@ const ConfirmationCheckout = ({ items }: CartState) => {
                         <div className="mb-3 flex flex-col border-b border-b-gray-border font-bold">
                             {items.map((item) => (
                                 <div className="flex items-center justify-between pb-3 text-left  ">
-                                    <img
-                                        className="w-[50px]"
-                                        src={renderProductImages(item.slug)}
-                                        alt=""
-                                    />
-                                    <div className="flex flex-col">
-                                        <p className="opacity-100">
-                                            {item.cartName}
-                                        </p>
-                                        <p className="text-[14px]">{`$ ${parseInt(item.price).toLocaleString('en-US')}`}</p>
+                                    <div className="flex">
+                                        <img
+                                            className="w-[50px]"
+                                            src={renderProductImages(item.slug)}
+                                            alt=""
+                                        />
+                                        <div className="flex flex-col pl-4">
+                                            <p className="opacity-100">
+                                                {item.cartName}
+                                            </p>
+                                            <p className="text-[14px]">{`$ ${parseInt(item.price).toLocaleString('en-US')}`}</p>
+                                        </div>
                                     </div>
+
                                     <p className="self-baseline text-[14px]">
                                         x{item.quantity}
                                     </p>

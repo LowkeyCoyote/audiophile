@@ -42,17 +42,17 @@ const CategoryLinks = ({ className }: HTMLAttributes<HTMLDivElement>) => {
                 <Link
                     to={link}
                     key={index}
-                    className="group relative rounded-lg bg-very-light-grey px-28 pb-8 pt-28
-                     text-center md:px-14 md:pb-5 md:pt-[88px]"
+                    className="group relative rounded-lg bg-very-light-grey pb-8 pt-28
+                     text-center md:pb-5 md:pt-[88px]"
                 >
                     <img
                         src={img}
                         alt={altText}
                         className="absolute left-1/2 top-4 w-1/2 -translate-x-1/2 -translate-y-1/2 transform sm:top-6 sm:w-1/2"
                     />
-                    <h6>{text}</h6>
-                    <Button variant="shop" link={link}>
-                        <p className="subtitle opacity-100 duration-75 group-hover:text-dark-peach">
+                    <h6 className='md:text-[15px]'>{text}</h6>
+                    <Button variant="shop" link={link} className='sm:pb-0 sm:pt-4 '>
+                        <p className="subtitle duration-75 !opacity-50 group-hover:text-dark-peach">
                             SHOP
                         </p>{' '}
                         <img

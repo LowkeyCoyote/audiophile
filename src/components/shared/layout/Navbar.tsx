@@ -6,12 +6,16 @@ import Modal from '../ui/Modal';
 import Cart from '@components/shared/Cart';
 import { useState } from 'react';
 import useModalScrollLock from '@hooks/useModalScrollLock';
+import CategoryLinks from '../CategoryLinks';
 
 const Navbar = () => {
     const navigate = useNavigate();
 
-    const [cartIsOpen, setCartIsOpen] = useState(false);
     const [cartVisible, setCartVisible] = useState(false);
+    const [navSmallDeviseVisible, setNavSmallDeviceVisible] = useState(false)
+
+
+    useModalScrollLock(navSmallDeviseVisible)
     useModalScrollLock(cartVisible);
 
     const goToCheckout = () => {
@@ -20,8 +24,12 @@ const Navbar = () => {
     };
 
     const toggleNavbar = () => {
-        setCartIsOpen(!cartIsOpen);
-        document.body.classList.toggle('block-scroll');
+        if(window.innerWidth < 1024){
+            setNavSmallDeviceVisible(!navSmallDeviseVisible)
+            console.log('swag')
+
+            
+        }
     };
 
     const navLinks = [
@@ -40,6 +48,7 @@ const Navbar = () => {
                         onClick={toggleNavbar}
                         src={iconHamburger}
                         alt="icon hamburger"
+                    
                     />
                     <Link to="./">
                         <img src={logoNavbar} alt="audiophile logo" />
@@ -75,6 +84,19 @@ const Navbar = () => {
                         <Cart goToCheckout={goToCheckout} />
                     </Modal>
                 )}
+
+                {navSmallDeviseVisible && (
+                    <Modal
+                    modalClose={() => setNavSmallDeviceVisible(false)}
+                    modalPosition='translate-y-0 translate-x-1/2 top-[97px] w-screen h-auto rounded-t-none'
+                    >
+                        <CategoryLinks
+                        className='md:pt-28 md:px-10 md:pb-16 md:text-black md:text-center sm:pt-20 sm:px-6 sm:pb-8'
+                        />
+
+                    </Modal>
+                )}
+
             </div>
         </nav>
     );

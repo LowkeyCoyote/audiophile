@@ -9,7 +9,7 @@ const HeroHome = () => {
     "
         >
             <div className="md:text-center">
-                <p className="overlineText mb-6">
+                <p className="overlineText text-white mb-6">
                     NEW PRODUCT
                 </p>
                 <h1 className="mb-6 w-1/2 md:w-full">
