@@ -1,11 +1,15 @@
-import { useParams, useNavigate } from 'react-router-dom';
-import HeroCategory from '@components/category/HeroCategory';
-import dataProduct from '@datas/dataProduct.json';
-import { ProductType } from '../types/types';
 import { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+
+import HeroCategory from '@components/category/HeroCategory';
 import ProductCardCategory from '@components/category/ProductCardCategory';
 import CategoryLinks from '@components/shared/CategoryLinks';
 import BestGearCard from '@components/shared/BestGearCard';
+
+import { ProductType } from '../types/types';
+
+import dataProduct from '@datas/dataProduct.json';
+
 
 const CategoryPage = () => {
     let param = useParams();

@@ -1,11 +1,13 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import dataProduct from '@datas/dataProduct.json';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+
 import ProductCard from '@components/product/ProductCard';
 import ProductGridImg from '@components/product/ProductGridImg';
 import ProductDetails from '@components/product/ProductDetails';
 import CategoryLinks from '@components/shared/CategoryLinks';
 import ProductSuggestion from '@components/product/ProductSuggestion';
+
+import dataProduct from '@datas/dataProduct.json';
 
 const ProductPage = () => {
     let navigate = useNavigate();

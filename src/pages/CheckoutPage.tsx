@@ -1,13 +1,17 @@
+import { useRef, RefObject, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { clearCart } from '@redux/cartSlice';
+import { RootState } from '@redux/store';
+
 import CartCheckout from '@components/checkout/CartCheckout';
 import FormCheckout from '@components/checkout/FormCheckout';
-import { useRef, RefObject, useState } from 'react';
-import Modal from '@components/shared/ui/Modal';
-import { useDispatch, useSelector } from 'react-redux';
-import { clearCart } from '../redux/cartSlice';
-import { RootState } from '../redux/store';
-import { ItemState } from '../types/types';
 import ConfirmationCheckout from '@components/checkout/ConfirmationCheckout';
+import Modal from '@components/shared/ui/Modal';
+
+import { ItemState } from '../types/types';
+
 import useModalScrollLock from '@hooks/useModalScrollLock';
 
 const CheckoutPage = () => {
@@ -16,6 +20,7 @@ const CheckoutPage = () => {
 
     const [openModal, setOpenModal] = useState(false);
     const [orderDetails, setOrderDetails] = useState<ItemState[]>(cart);
+
     useModalScrollLock(openModal);
 
     const submitRef = useRef<HTMLButtonElement>(null!);
