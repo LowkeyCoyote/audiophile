@@ -26,7 +26,7 @@ const Footer = () => {
                         <li key={index}>
                             <Link
                                 to={link.path}
-                                className="ea text-[13px] font-semibold uppercase tracking-[2px] duration-75 hover:text-peach"
+                                className="ea text-[13px] font-semibold uppercase tracking-[2px] duration-75 hover:text-dark-peach"
                             >
                                 {link.text}
                             </Link>

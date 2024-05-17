@@ -23,7 +23,7 @@ const Cart = ({ goToCheckout }: CartProps) => {
             <div className="flex items-center justify-between pb-8">
                 <h6 className="opacity-50">{`cart ( ${cart.length} )`}</h6>
                 <p
-                    className=" font-bold uppercase text-dark-peach opacity-100"
+                    className=" font-bold uppercase text-dark-peach opacity-100 cursor-pointer"
                     onClick={() => dispatch(clearCart())}
                 >
                     Remove all
@@ -86,14 +86,17 @@ const Cart = ({ goToCheckout }: CartProps) => {
                         </div>
                     </div>
                 ))}
-            <div className="mb-6 mt-2 flex items-center justify-between">
-                <p className="uppercase">Total</p>
-                <h6 className="font-bold tracking-normal">{`$ ${getCartTotalPrice(cart).toLocaleString('en-US')}`}</h6>
-            </div>
-
-            <Button className="w-full" onClick={goToCheckout}>
-                Checkout
-            </Button>
+           {cart.length !== 0 && (
+                <>
+                    <div className="mb-6 mt-2 flex items-center justify-between">
+                        <p className="uppercase">Total</p>
+                        <h6 className="font-bold tracking-normal">{`$ ${getCartTotalPrice(cart).toLocaleString('en-US')}`}</h6>
+                    </div>
+                    <Button className="w-full" onClick={goToCheckout}>
+                        Checkout
+                    </Button>
+                </>
+            )}
         </div>
     );
 };
