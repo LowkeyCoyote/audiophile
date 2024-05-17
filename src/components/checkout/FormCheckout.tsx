@@ -173,7 +173,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                             <FormField
                                 label="e-Money PIN"
                                 name="eMoneyPIN"
-                                type="email"
+                                type="text"
                                 placeholder="6891"
                                 error={errors.eMoneyPIN && 'Wrong Format'}
                                 register={register}

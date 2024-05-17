@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '@redux/store';
 
 import { Link, useNavigate } from 'react-router-dom';
+
+
 
 import Modal from '@components/shared/ui/Modal';
 import Cart from '@components/shared/Cart';
@@ -13,6 +17,10 @@ import iconCart from '@assets/shared/icons/icon-cart.svg';
 import iconHamburger from '@assets/shared/icons/icon-hamburger.svg';
 
 const Navbar = () => {
+
+    const quantityProductInCart = useSelector((state: RootState) => state.cart.items.length);
+    console.log(quantityProductInCart)
+
     const navigate = useNavigate();
 
     const [cartVisible, setCartVisible] = useState(false);
@@ -28,7 +36,6 @@ const Navbar = () => {
 
     const goToCategory = () => {
         setNavSmallDeviceVisible(false)
-        console.log('hello')
     }
 
     const navLinks = [
@@ -65,12 +72,19 @@ const Navbar = () => {
                         </li>
                     ))}
                 </ul>
+                    <div className='flex'>
+                        <img
+                            src={iconCart}
+                            alt="cart"
+                            onClick={() => setCartVisible(!cartVisible)}
+                            className={`cart-img cursor-pointer ${cartVisible ? 'cart-open-img' : ''}`}
+                        />
+                        {quantityProductInCart > 0 && (
+                            <span className='w-[17px] h-[17px] rounded-full flex items-center font-semibold justify-center bg-dark-peach ml-1 text-[13px] self-end'>{quantityProductInCart}</span>
+                        )}
 
-                <img
-                    src={iconCart}
-                    alt="cart"
-                    onClick={() => setCartVisible(!cartVisible)}
-                />
+                    </div>
+                  
                 {cartVisible && (
                     <Modal
                         modalClose={() => setCartVisible(false)}

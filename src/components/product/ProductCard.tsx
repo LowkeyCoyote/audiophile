@@ -1,4 +1,5 @@
 import { HTMLAttributes, useState } from 'react';
+
 import Button from '@components/shared/ui/Button';
 
 import { useDispatch } from 'react-redux';
@@ -35,7 +36,6 @@ const ProductCard = ({
 }: ProductHomeProps) => {
 
     const dispatch = useDispatch();
-
     let [quantity, setQuantity] = useState<number>(1);
 
     const incrementQuantity = () => {
@@ -110,9 +110,7 @@ const ProductCard = ({
                         <button
                             className="w-[24px] text-[13px] opacity-50"
                             onClick={decrementQuantity}
-                        >
-                            -
-                        </button>
+                        >-</button>
 
                         <label
                             htmlFor="quantity"
@@ -136,9 +134,7 @@ const ProductCard = ({
                         <button
                             className="w-[24px] text-[13px] opacity-50"
                             onClick={incrementQuantity}
-                        >
-                            +
-                        </button>
+                        >+</button>
                     </div>
                     <Button
                         onClick={() =>

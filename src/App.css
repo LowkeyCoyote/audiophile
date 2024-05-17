@@ -117,9 +117,18 @@
 }
 
 .linkFooter img:hover{
-  filter : contrast(60%) sepia(1) hue-rotate(306deg) saturate(1000%);
+  filter : invert(54%) sepia(31%) saturate(920%) hue-rotate(338deg) brightness(97%) contrast(86%);
   transition: all ease-in-out 0.5;
 }
+
+.cart-img:hover{
+  filter : invert(54%) sepia(31%) saturate(920%) hue-rotate(338deg) brightness(97%) contrast(86%);
+  transition: all ease-in-out 0.5;}
+
+.cart-open-img{
+  filter : invert(54%) sepia(31%) saturate(920%) hue-rotate(338deg) brightness(97%) contrast(86%);
+}  
+
 
 
 /* grid home */
@@ -179,6 +188,17 @@
     padding-top: 1.5rem;
     
   }
+
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"]{
+  appearance: textfield;
+  -moz-appearance: textfield; 
 
 }
 

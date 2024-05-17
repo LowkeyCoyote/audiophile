@@ -43,7 +43,7 @@ const Footer = () => {
                     open 7 days a week.
                 </p>
                 <ul
-                    className="linkFooter mr-0 flex w-[50%] justify-end gap-4
+                    className="linkFooter items-center mr-0 flex w-[50%] justify-end gap-4
         self-end fill-dark-peach md:order-3 sm:w-full sm:justify-center
         sm:self-center
         "
