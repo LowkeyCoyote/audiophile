@@ -19,7 +19,6 @@ import iconHamburger from '@assets/shared/icons/icon-hamburger.svg';
 const Navbar = () => {
 
     const quantityProductInCart = useSelector((state: RootState) => state.cart.items.length);
-    console.log(quantityProductInCart)
 
     const navigate = useNavigate();
 

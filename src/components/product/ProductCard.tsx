@@ -1,4 +1,5 @@
 import { HTMLAttributes, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '@components/shared/ui/Button';
 
@@ -36,6 +37,7 @@ const ProductCard = ({
 }: ProductHomeProps) => {
 
     const dispatch = useDispatch();
+    let navigate = useNavigate();
     let [quantity, setQuantity] = useState<number>(1);
 
     const incrementQuantity = () => {
@@ -50,6 +52,8 @@ const ProductCard = ({
             setQuantity(quantity);
         }
     };
+
+
 
     const addProductToCart = (
         idProduct: number,
@@ -68,8 +72,10 @@ const ProductCard = ({
                 cartName,
             }),
         );
-        toast.success('Your order has been added to the cart', {
+        toast.success('Your order has been added to the cart. Click here to go to checkout', {
             position: 'bottom-right',
+            onClick: () => navigate('/checkout'),
+            style : {cursor : 'pointer'}
         });
     };
 
