@@ -1,36 +1,35 @@
+import { useState } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
+
+import Modal from '@components/shared/ui/Modal';
+import Cart from '@components/shared/Cart';
+import CategoryLinks from '@components/shared/CategoryLinks';
+
+import useModalScrollLock from '@hooks/useModalScrollLock';
+
 import logoNavbar from '@assets/shared/logo/logo.svg';
 import iconCart from '@assets/shared/icons/icon-cart.svg';
 import iconHamburger from '@assets/shared/icons/icon-hamburger.svg';
-import Modal from '../ui/Modal';
-import Cart from '@components/shared/Cart';
-import { useState } from 'react';
-import useModalScrollLock from '@hooks/useModalScrollLock';
-import CategoryLinks from '../CategoryLinks';
 
 const Navbar = () => {
     const navigate = useNavigate();
 
     const [cartVisible, setCartVisible] = useState(false);
-    const [navSmallDeviseVisible, setNavSmallDeviceVisible] = useState(false)
+    const [navSmallDeviseVisible, setNavSmallDeviceVisible] = useState(false);
 
-
-    useModalScrollLock(navSmallDeviseVisible)
     useModalScrollLock(cartVisible);
+    useModalScrollLock(navSmallDeviseVisible);
 
     const goToCheckout = () => {
         setCartVisible(false);
         navigate('/checkout');
     };
 
-    const toggleNavbar = () => {
-        if(window.innerWidth < 1024){
-            setNavSmallDeviceVisible(!navSmallDeviseVisible)
-            console.log('swag')
-
-            
-        }
-    };
+    const goToCategory = () => {
+        setNavSmallDeviceVisible(false)
+        console.log('hello')
+    }
 
     const navLinks = [
         { path: './', text: 'Home' },
@@ -45,10 +44,9 @@ const Navbar = () => {
                 <div className="flex items-center">
                     <img
                         className="hidden md:mr-10 md:block md:h-min "
-                        onClick={toggleNavbar}
+                        onClick={() => setNavSmallDeviceVisible(!navSmallDeviseVisible)}
                         src={iconHamburger}
                         alt="icon hamburger"
-                    
                     />
                     <Link to="./">
                         <img src={logoNavbar} alt="audiophile logo" />
@@ -87,16 +85,15 @@ const Navbar = () => {
 
                 {navSmallDeviseVisible && (
                     <Modal
-                    modalClose={() => setNavSmallDeviceVisible(false)}
-                    modalPosition='translate-y-0 translate-x-1/2 top-[97px] w-screen h-auto rounded-t-none'
+                        modalClose={() => setNavSmallDeviceVisible(false)}
+                        modalPosition="translate-y-0 translate-x-1/2 top-[97px] w-screen h-auto rounded-t-none"
                     >
                         <CategoryLinks
-                        className='md:pt-28 md:px-10 md:pb-16 md:text-black md:text-center sm:pt-20 sm:px-6 sm:pb-8'
+                            className="md:px-10 md:pb-16 md:pt-28 md:text-center md:text-black sm:px-6 sm:pb-8 sm:pt-20"
+                            onClick={goToCategory}
                         />
-
                     </Modal>
                 )}
-
             </div>
         </nav>
     );

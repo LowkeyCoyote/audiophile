@@ -1,12 +1,13 @@
-import bestGearDesktop from '@assets/shared/image-best-gear-desktop.jpg';
-import bestGearTablet from '@assets/shared/image-best-gear-tablet.jpg';
-import bestGearMobile from '@assets/shared/image-best-gear-mobile.jpg';
+import { HTMLAttributes } from 'react';
 
 import useIsMobile from '@hooks/useIsMobile';
 import useIsTablet from '@hooks/useIsTablet';
 
-import { HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
+
+import bestGearDesktop from '@assets/shared/image-best-gear-desktop.jpg';
+import bestGearTablet from '@assets/shared/image-best-gear-tablet.jpg';
+import bestGearMobile from '@assets/shared/image-best-gear-mobile.jpg';
 
 const BestGearCard = ({ className }: HTMLAttributes<HTMLDivElement>) => {
     let isMobile = useIsMobile();

@@ -13,7 +13,8 @@ export default defineConfig({
       "@datas" : path.resolve(__dirname, './src/datas'),
       "@const" : path.resolve(__dirname,'./src/const'),
       "@hooks" : path.resolve(__dirname,'./src/hooks'),
-      "@types" : path.resolve(__dirname,'./src/types')
+      "@types" : path.resolve(__dirname,'./src/types'),
+      "@redux" : path.resolve(__dirname,'./src/redux'),
     }
   }
 })

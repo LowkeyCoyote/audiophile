@@ -1,7 +1,7 @@
+import Button from '@components/shared/ui/Button';
+
 import useIsMobile from '@hooks/useIsMobile';
 import useIsTablet from '@hooks/useIsTablet';
-
-import Button from '@components/shared/ui/Button';
 
 interface OtherProduct {
     name: string;

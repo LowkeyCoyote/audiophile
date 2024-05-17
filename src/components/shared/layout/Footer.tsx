@@ -1,5 +1,6 @@
-import logoDesigno from '@assets/shared/logo/logo.svg';
 import { Link } from 'react-router-dom';
+
+import logoDesigno from '@assets/shared/logo/logo.svg';
 import iconFacebook from '@assets/shared/icons/icon-facebook.svg';
 import iconTwitter from '@assets/shared/icons/icon-twitter.svg';
 import iconInstagram from '@assets/shared/icons/icon-instagram.svg';

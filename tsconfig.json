@@ -24,6 +24,7 @@
       "@const/*" : ["src/const/*"],
       "@hooks/*" : ["src/hooks/*"],
       "@types/*" : ["src/types/*"],
+      "@redux/*" : ["src/redux/*"]
 
     },
 

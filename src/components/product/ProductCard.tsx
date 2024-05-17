@@ -1,14 +1,17 @@
 import { HTMLAttributes, useState } from 'react';
 import Button from '@components/shared/ui/Button';
 
+import { useDispatch } from 'react-redux';
+import { addToCart } from '@redux/cartSlice';
+
 import useIsMobile from '@hooks/useIsMobile';
 import useIsTablet from '@hooks/useIsTablet';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../../redux/reducer/cartSlice';
+
 import { twMerge } from 'tailwind-merge';
-import { RootState } from '../../redux/store';
-import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 interface ProductHomeProps extends HTMLAttributes<HTMLDivElement> {
     idProduct: number;
@@ -30,8 +33,6 @@ const ProductCard = ({
     price,
     className,
 }: ProductHomeProps) => {
-    const cart = useSelector((state: RootState) => state.cart.items);
-    console.log(cart);
 
     const dispatch = useDispatch();
 
@@ -67,7 +68,7 @@ const ProductCard = ({
                 cartName,
             }),
         );
-        toast.success('Your order has been add to cart', {
+        toast.success('Your order has been added to the cart', {
             position: 'bottom-right',
         });
     };

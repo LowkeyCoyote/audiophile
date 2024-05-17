@@ -1,7 +1,8 @@
 import { ButtonHTMLAttributes } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { VariantProps, cva } from 'class-variance-authority';
 import cn from '@utils/cn';
-import { useNavigate } from 'react-router-dom';
 
 interface ButtonProps
     extends ButtonHTMLAttributes<HTMLButtonElement>,
@@ -10,14 +11,9 @@ interface ButtonProps
     onClick?: () => void;
 }
 
-const Button = ({
-    children,
-    variant,
-    link,
-    className,
-    onClick,
-}: ButtonProps) => {
+const Button = ({children, variant, link, className, onClick}: ButtonProps) => {
     const navigate = useNavigate();
+    
     const actionOnButtonClick = () => {
         if (onClick) {
             onClick();

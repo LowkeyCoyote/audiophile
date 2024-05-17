@@ -69,10 +69,7 @@ export default {
       'grid-home-zx9-mobile' : "url('/src/assets/home/image-speaker-zx9-mobile.png')"
     },
     
-    
-
     screens: {
-
       md: { max: "1024px"},
       sm: { max: "640px" }
 		},
@@ -93,9 +90,6 @@ export default {
       'normal' : '0px'
     },
   
-
-
-
     extend: {},
   },
   plugins: [],

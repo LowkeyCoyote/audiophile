@@ -1,8 +1,11 @@
-import { useForm } from 'react-hook-form';
-import FormField from '@components/shared/ui/FormField';
 import { useState, MutableRefObject } from 'react';
-import cashOnDeliveryIcon from '@assets/checkout/icon-cash-on-delivery.svg';
+import { useForm } from 'react-hook-form';
+
+import FormField from '@components/shared/ui/FormField';
+
 import { FormValues } from '../../types/types';
+
+import cashOnDeliveryIcon from '@assets/checkout/icon-cash-on-delivery.svg';
 
 type FormCheckoutProps = {
     submitRef: MutableRefObject<HTMLButtonElement>;
@@ -28,9 +31,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
             <h3 className="pb-10 pt-1.5 sm:pb-8">Checkout</h3>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-                <p className="subtitle text-dark-peach">
-                    Billing details
-                </p>
+                <p className="subtitle text-dark-peach">Billing details</p>
 
                 <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-1">
                     <FormField
@@ -41,7 +42,10 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         error={errors.name && 'Wrong Format'}
                         register={register}
                         column="col-1"
-                        validationPattern={/^[a-zA-ZÀ-ÿ'-]{1,25}(?:\s[a-zA-ZÀ-ÿ'-]{1,25})?$/}
+                        validationPattern={
+                            /^[a-zA-ZÀ-ÿ'-]{1,30}(?:\s[a-zA-ZÀ-ÿ'-]{1,30})?$/
+                        }
+                        maxLength={30}
                     />
                     <FormField
                         label="Email Address"
@@ -52,6 +56,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         register={register}
                         column="col-2"
                         validationPattern={/^\S+@\S+\.\S+$/}
+                        maxLength={70}
                     />
                     <FormField
                         label="Phone Number"
@@ -61,12 +66,11 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         error={errors.tel && 'Wrong Format'}
                         register={register}
                         column="col-1"
-                        validationPattern={/^[0-9\s\-()+]+$/}
+                        validationPattern={/^[0-9\s\-()+]{1,12}$/}
+                        maxLength={12}
                     />
                 </div>
-                <p className="subtitle text-dark-peach">
-                    Shipping info
-                </p>
+                <p className="subtitle text-dark-peach">Shipping info</p>
                 <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-1">
                     <FormField
                         label="Address"
@@ -76,7 +80,8 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         error={errors.address && 'Wrong Format'}
                         register={register}
                         column="col-span-2"
-                        validationPattern={/^.{0,300}$/}
+                        validationPattern={/^.{0,150}$/}
+                        maxLength={150}
                     />
                     <FormField
                         label="Zip Code"
@@ -87,6 +92,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         register={register}
                         column="col-1 sm:col-span-2"
                         validationPattern={/^\d{4,9}$/}
+                        maxLength={9}
                     />
                     <FormField
                         label="City"
@@ -97,6 +103,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         register={register}
                         column="col-1 sm:col-span-2"
                         validationPattern={/^[a-zA-Z\s\-']+$/}
+                        maxLength={50}
                     />
                     <FormField
                         label="Country"
@@ -107,12 +114,11 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                         register={register}
                         column="col-1 sm:col-span-2 "
                         validationPattern={/^[a-zA-Z\s]+$/}
+                        maxLength={50}
                     />
                 </div>
 
-                <p className="subtitle text-dark-peach">
-                    payment details
-                </p>
+                <p className="subtitle text-dark-peach">payment details</p>
                 <div className="mb-12 grid grid-cols-2 gap-4 sm:grid-cols-1">
                     <p className="col-1 text-[12px] font-bold">
                         Payment Method
@@ -162,6 +168,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                                 register={register}
                                 column="col-1"
                                 validationPattern={/^[0-9]{9}$/}
+                                maxLength={9}
                             />
                             <FormField
                                 label="e-Money PIN"
@@ -172,6 +179,7 @@ const FormCheckout = ({ submitRef, onSubmit }: FormCheckoutProps) => {
                                 register={register}
                                 column="col-2"
                                 validationPattern={/^[0-9]{4}$/}
+                                maxLength={4}
                             />
                         </>
                     )}

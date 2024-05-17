@@ -30,7 +30,11 @@ const categoryLinkArray = [
     },
 ];
 
-const CategoryLinks = ({ className }: HTMLAttributes<HTMLDivElement>) => {
+interface categoryLinksProps extends HTMLAttributes<HTMLDivElement>{
+  onClick ?: () => void
+}
+
+const CategoryLinks = ({ className, onClick }: categoryLinksProps) => {
     return (
         <div
             className={twMerge(
@@ -44,6 +48,7 @@ const CategoryLinks = ({ className }: HTMLAttributes<HTMLDivElement>) => {
                     key={index}
                     className="group relative rounded-lg bg-very-light-grey pb-8 pt-28
                      text-center md:pb-5 md:pt-[88px]"
+                     onClick={onClick}
                 >
                     <img
                         src={img}
@@ -51,7 +56,7 @@ const CategoryLinks = ({ className }: HTMLAttributes<HTMLDivElement>) => {
                         className="absolute left-1/2 top-4 w-1/2 -translate-x-1/2 -translate-y-1/2 transform sm:top-6 sm:w-1/2"
                     />
                     <h6 className='md:text-[15px]'>{text}</h6>
-                    <Button variant="shop" link={link} className='sm:pb-0 sm:pt-4 '>
+                    <Button variant="shop" link={link}  className='sm:pb-0 sm:pt-4 '>
                         <p className="subtitle duration-75 !opacity-50 group-hover:text-dark-peach">
                             SHOP
                         </p>{' '}

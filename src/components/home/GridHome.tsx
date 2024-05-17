@@ -1,7 +1,7 @@
+import Button from '@components/shared/ui/Button';
+
 import useIsMobile from '@hooks/useIsMobile';
 import useIsTablet from '@hooks/useIsTablet';
-
-import Button from '@components/shared/ui/Button';
 
 import zx9SpeakerDesktop from '@assets/home/image-speaker-zx9-desktop.png';
 import zx9SpeakerTablet from '@assets/home/image-speaker-zx9-tablet.png';

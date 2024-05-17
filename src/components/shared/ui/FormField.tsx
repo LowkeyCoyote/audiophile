@@ -9,24 +9,10 @@ interface FormFieldProps {
     register: any;
     column?: string;
     validationPattern?: RegExp;
+    maxLength ?: number;
 }
 
-const FormField: React.FC<FormFieldProps> = ({ label, name, type, placeholder, error, register, column, validationPattern }) => {
-
-
-    let maxLength = 80; 
-
-    if (name === "eMoneyPIN") {
-        maxLength = 4;
-    }
-
-    if(name === "eMoneyNumber"){
-        maxLength = 9
-    }
-
-    if(type === 'tel'){
-        maxLength = 12
-    }
+const FormField: React.FC<FormFieldProps> = ({ label, name, type, placeholder, error, register, column, validationPattern, maxLength }) => {
 
     return (
         <div className={column}>

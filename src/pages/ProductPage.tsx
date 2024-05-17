@@ -18,8 +18,7 @@ const ProductPage = () => {
         }
     }, []);
 
-    let slugProduct = param.slug;
-    productData = dataProduct.find((e) => e.slug === slugProduct);
+    productData = dataProduct.find((e) => e.slug === param.slug);
 
     return (
         <section className="px-40 pb-40 pt-20 md:px-10 md:pt-20 sm:px-6">

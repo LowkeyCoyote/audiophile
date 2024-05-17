@@ -1,16 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
-import './index.css';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from '@redux/store.ts';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
+import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import './index.css';
+
 import HomePage from '@pages/HomePage.tsx';
 import CategoryPage from '@pages/CategoryPage.tsx';
 import ProductPage from '@pages/ProductPage.tsx';
 import CheckoutPage from '@pages/CheckoutPage.tsx';
-import { Provider } from 'react-redux';
-import { store } from './redux/store.ts';
-import { PersistGate } from 'redux-persist/integration/react';
-import { persistStore } from 'redux-persist';
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
         ],
     },
 ]);
+
 let persistor = persistStore(store);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

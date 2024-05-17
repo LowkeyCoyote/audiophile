@@ -4,7 +4,7 @@ import FormCheckout from '@components/checkout/FormCheckout';
 import { useRef, RefObject, useState } from 'react';
 import Modal from '@components/shared/ui/Modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearCart } from '../redux/reducer/cartSlice';
+import { clearCart } from '../redux/cartSlice';
 import { RootState } from '../redux/store';
 import { ItemState } from '../types/types';
 import ConfirmationCheckout from '@components/checkout/ConfirmationCheckout';

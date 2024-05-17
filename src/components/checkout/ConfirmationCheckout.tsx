@@ -10,7 +10,7 @@ const renderProductImages = (slug: string) => {
 };
 
 const ConfirmationCheckout = ({ items }: CartState) => {
-    const [showOtherItems, setShowOtherItems] = useState(true);
+    const [showOtherItems, setShowOtherItems] = useState(false);
 
     const totalCartPrice = getCartTotalPrice(items);
 
@@ -56,24 +56,24 @@ const ConfirmationCheckout = ({ items }: CartState) => {
                     )}
                     {showOtherItems && (
                         <div className="mb-3 flex flex-col border-b border-b-gray-border font-bold">
-                            {items.map((item) => (
-                                <div className="flex items-center justify-between pb-3 text-left  ">
+                            {items.map(({idProduct, slug, cartName, price, quantity}) => (
+                                <div key={idProduct} className="flex items-center justify-between pb-3 text-left  ">
                                     <div className="flex">
                                         <img
                                             className="w-[50px]"
-                                            src={renderProductImages(item.slug)}
+                                            src={renderProductImages(slug)}
                                             alt=""
                                         />
                                         <div className="flex flex-col pl-4">
                                             <p className="opacity-100">
-                                                {item.cartName}
+                                                {cartName}
                                             </p>
-                                            <p className="text-[14px]">{`$ ${parseInt(item.price).toLocaleString('en-US')}`}</p>
+                                            <p className="text-[14px]">{`$ ${parseInt(price).toLocaleString('en-US')}`}</p>
                                         </div>
                                     </div>
 
                                     <p className="self-baseline text-[14px]">
-                                        x{item.quantity}
+                                        x{quantity}
                                     </p>
                                 </div>
                             ))}
