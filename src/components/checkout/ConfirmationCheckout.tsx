@@ -34,7 +34,7 @@ const ConfirmationCheckout = ({ items }: CartState) => {
             <div className="mb-12 flex w-full rounded-lg bg-very-light-grey sm:flex-col">
                 <div className="flex w-[57%] flex-col p-6 sm:w-full">
                     {!showOtherItems && (
-                        <div className="flex items-center justify-between border-b border-b-gray-border pb-3 font-bold ">
+                        <div className="flex items-center justify-between border-b border-b-gray-border pb-3 font-bold">
                             <div className="flex">
                                 <img
                                     className="w-[50px]"
@@ -57,7 +57,7 @@ const ConfirmationCheckout = ({ items }: CartState) => {
                     {showOtherItems && (
                         <div className="mb-3 flex flex-col border-b border-b-gray-border font-bold">
                             {items.map(({idProduct, slug, cartName, price, quantity}) => (
-                                <div key={idProduct} className="flex items-center justify-between pb-3 text-left  ">
+                                <div key={idProduct} className="flex items-center justify-between pb-3 text-left">
                                     <div className="flex">
                                         <img
                                             className="w-[50px]"

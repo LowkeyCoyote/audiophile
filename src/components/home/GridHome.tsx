@@ -20,7 +20,7 @@ const GridHome = () => {
             <div className="first-section-grid-home bg-pattern-circle">
                 <div className="first-section-grid-home-img">
                     <img
-                        className=" h-full w-full pl-24 pt-24 md:pl-0 md:pt-14 "
+                        className=" h-full w-full pl-24 pt-24 md:pl-0 md:pt-14"
                         src={
                             !isMobile && isTablet
                                 ? zx9SpeakerTablet
@@ -31,7 +31,7 @@ const GridHome = () => {
                         alt="zx9 Speaker"
                     />
                 </div>
-                <div className="flex flex-col pt-12 text-white md:items-center md:px-44 md:pb-16 md:pt-12 sm:px-2 sm:pt-8 ">
+                <div className="flex flex-col pt-12 text-white md:items-center md:px-44 md:pb-16 md:pt-12 sm:px-2 sm:pt-8">
                     <h1 className=" mb-8 w-1/2 md:mb-4 md:w-full">
                         ZX9 SPEAKER
                     </h1>
@@ -72,7 +72,7 @@ const GridHome = () => {
                     }
                     alt=""
                 />
-                <div className="max-h-[320px] max-w-[50%] flex-1 rounded-lg bg-[#F1F1F1] py-24 md:max-w-full sm:max-h-[200px] sm:py-10 ">
+                <div className="max-h-[320px] max-w-[50%] flex-1 rounded-lg bg-[#F1F1F1] py-24 md:max-w-full sm:max-h-[200px] sm:py-10">
                     <h4 className="mb-8 pl-24 md:pl-10 sm:pl-6">
                         YX1 EARPHONES
                     </h4>

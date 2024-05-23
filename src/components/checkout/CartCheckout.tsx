@@ -21,13 +21,12 @@ const CartCheckout = ({ submitForm }: CartCheckoutProps) => {
         <div className="rounded-lg bg-white p-8 sm:px-6">
             <h6 className="mb-8">Summary</h6>
             {cart.length === 0 && <h3>Your cart is empty </h3>}
-
             {cart.length > 0 && (
                 <>
                     {cart.map(({ slug, price, quantity, cartName }, index) => (
                         <div
                             key={index}
-                            className="mb-6 flex items-center justify-between rounded-lg "
+                            className="mb-6 flex items-center justify-between rounded-lg"
                         >
                             <div className="flex items-center">
                                 <img

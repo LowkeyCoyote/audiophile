@@ -17,7 +17,7 @@ const FormField: React.FC<FormFieldProps> = ({ label, name, type, placeholder, e
     return (
         <div className={column}>
             <div className="flex items-center justify-between mb-2">
-                <label htmlFor={name} className="flex flex-col font-bold labelForm ">
+                <label htmlFor={name} className="flex flex-col font-bold labelForm">
                     {label}
                 </label>
                 {error ? (

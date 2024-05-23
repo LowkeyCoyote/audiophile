@@ -52,7 +52,7 @@ const Cart = ({ goToCheckout }: CartProps) => {
                                 ).toLocaleString('en-US')}`}</p>
                             </div>
                         </div>
-                        <div className=" flex  h-[48px] w-fit items-center bg-very-light-grey px-4  ">
+                        <div className=" flex  h-[48px] w-fit items-center bg-very-light-grey px-4">
                             <button
                                 className="w-[24px] text-[13px] opacity-50 hover:text-dark-peach"
                                 onClick={() => dispatch(decrease(idProduct))}
@@ -78,7 +78,7 @@ const Cart = ({ goToCheckout }: CartProps) => {
                                 id={cartName}
                             />
                             <button
-                                className="w-[24px] text-[13px] opacity-50 hover:text-dark-peach "
+                                className="w-[24px] text-[13px] opacity-50 hover:text-dark-peach"
                                 onClick={() => dispatch(increase(idProduct))}
                             >
                                 +

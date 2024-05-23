@@ -4,8 +4,6 @@ import { RootState } from '@redux/store';
 
 import { Link, useNavigate } from 'react-router-dom';
 
-
-
 import Modal from '@components/shared/ui/Modal';
 import Cart from '@components/shared/Cart';
 import CategoryLinks from '@components/shared/CategoryLinks';
@@ -19,7 +17,6 @@ import iconHamburger from '@assets/shared/icons/icon-hamburger.svg';
 const Navbar = () => {
 
     const quantityProductInCart = useSelector((state: RootState) => state.cart.items.length);
-
     const navigate = useNavigate();
 
     const [cartVisible, setCartVisible] = useState(false);
@@ -81,17 +78,13 @@ const Navbar = () => {
                         {quantityProductInCart > 0 && (
                             <span className='w-[17px] h-[17px] rounded-full flex items-center font-semibold justify-center bg-dark-peach ml-1 text-[13px] self-end'>{quantityProductInCart}</span>
                         )}
-
                     </div>
                   
                 {cartVisible && (
                     <Modal
                         modalClose={() => setCartVisible(false)}
                         modalPosition=" translate-y-0 translate-x-0 top-28 right-40 md:right-10
-                        sm:top-1/2 sm:right-1/2 sm:translate-x-1/2 sm:-translate-y-1/2
-                        
-                        "
-                    >
+                        sm:top-1/2 sm:right-1/2 sm:translate-x-1/2 sm:-translate-y-1/2">
                         <Cart goToCheckout={goToCheckout} />
                     </Modal>
                 )}
@@ -99,8 +92,7 @@ const Navbar = () => {
                 {navSmallDeviseVisible && (
                     <Modal
                         modalClose={() => setNavSmallDeviceVisible(false)}
-                        modalPosition="translate-y-0 translate-x-1/2 top-[97px] w-screen h-auto rounded-t-none"
-                    >
+                        modalPosition="translate-y-0 translate-x-1/2 top-[97px] w-screen h-auto rounded-t-none">
                         <CategoryLinks
                             className="md:px-10 md:pb-16 md:pt-28 md:text-center md:text-black sm:px-6 sm:pb-8 sm:pt-20"
                             onClick={goToCategory}

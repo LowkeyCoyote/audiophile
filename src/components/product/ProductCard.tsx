@@ -13,8 +13,6 @@ import { twMerge } from 'tailwind-merge';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-
-
 interface ProductHomeProps extends HTMLAttributes<HTMLDivElement> {
     idProduct: number;
     slug: string;
@@ -37,7 +35,8 @@ const ProductCard = ({
 }: ProductHomeProps) => {
 
     const dispatch = useDispatch();
-    let navigate = useNavigate();
+    const navigate = useNavigate();
+
     let [quantity, setQuantity] = useState<number>(1);
 
     const incrementQuantity = () => {
@@ -52,8 +51,6 @@ const ProductCard = ({
             setQuantity(quantity);
         }
     };
-
-
 
     const addProductToCart = (
         idProduct: number,
@@ -102,7 +99,7 @@ const ProductCard = ({
             />
             <div className="w-[60%] px-32 text-left md:pl-16 md:pr-0 sm:w-full sm:pl-0">
                 {isNew ? (
-                    <p className="overlineText !opacity-100 mb-4 sm:mt-8 sm:px-0  ">
+                    <p className="overlineText !opacity-100 mb-4 sm:mt-8 sm:px-0">
                         New Product
                     </p>
                 ) : (
@@ -112,7 +109,7 @@ const ProductCard = ({
                 <p className="mb-8 opacity-50 sm:mb-6">{description}</p>
                 <h6 className="pb-12 sm:pb-8">{`$ ${price.toLocaleString('en-US')}`}</h6>
                 <div className="flex items-center gap-4">
-                    <div className=" flex h-[48px] w-fit bg-very-light-grey px-4 ">
+                    <div className=" flex h-[48px] w-fit bg-very-light-grey px-4">
                         <button
                             className="w-[24px] text-[13px] opacity-50"
                             onClick={decrementQuantity}
@@ -130,7 +127,7 @@ const ProductCard = ({
                         </label>
                         <input
                             readOnly
-                            className=" w-[40px] cursor-pointer border-none bg-very-light-grey text-center text-[13px] font-bold text-black focus:outline-none "
+                            className=" w-[40px] cursor-pointer border-none bg-very-light-grey text-center text-[13px] font-bold text-black focus:outline-none"
                             value={quantity}
                             type="number"
                             id="quantity"

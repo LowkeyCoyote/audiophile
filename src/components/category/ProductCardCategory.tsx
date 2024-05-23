@@ -50,7 +50,7 @@ const ProductCardCategory = ({
                 ) : (
                     ''
                 )}
-                <h2 className="mb-8 sm:mb-6 sm:px-16 ">{name}</h2>
+                <h2 className="mb-8 sm:mb-6 sm:px-16">{name}</h2>
                 <p className="mb-10 md:mb-6 sm:mb-6"> {description}</p>
                 <Button link={`/product/${slug}`}>See Product</Button>
             </div>

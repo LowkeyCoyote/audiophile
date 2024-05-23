@@ -14,14 +14,14 @@ const navLinks = [
 
 const Footer = () => {
     return (
-        <footer className="bg-[#101010] px-40 pb-12 pt-20  text-white md:mb-16 md:px-10 sm:px-6 sm:pb-10 sm:pt-14 ">
-            <div className="mb-8 flex items-center justify-between md:flex-col md:items-start  sm:mb-12 sm:items-center sm:gap-12 ">
+        <footer className="bg-[#101010] px-40 pb-12 pt-20  text-white md:mb-16 md:px-10 sm:px-6 sm:pb-10 sm:pt-14">
+            <div className="mb-8 flex items-center justify-between md:flex-col md:items-start  sm:mb-12 sm:items-center sm:gap-12">
                 <img
                     src={logoDesigno}
                     alt="logo designo"
                     className="md:mb-8 "
                 />
-                <ul className="flex items-center gap-9 sm:flex-col sm:gap-4 ">
+                <ul className="flex items-center gap-9 sm:flex-col sm:gap-4">
                     {navLinks.map((link, index) => (
                         <li key={index}>
                             <Link
@@ -34,7 +34,7 @@ const Footer = () => {
                     ))}
                 </ul>
             </div>
-            <div className="flex flex-wrap justify-between sm:text-center ">
+            <div className="flex flex-wrap justify-between sm:text-center">
                 <p className="w-[50%] md:order-1 md:w-full   ">
                     Audiophile is an all in one stop to fulfill your audio
                     needs. We're a small team of music lovers and sound
@@ -65,7 +65,7 @@ const Footer = () => {
                     </li>
                 </ul>
 
-                <div className="pt-14 md:order-2 md:w-[50%] sm:mb-12 sm:w-full ">
+                <div className="pt-14 md:order-2 md:w-[50%] sm:mb-12 sm:w-full">
                     <p className="font-bold">
                         Copyright 2021. All Rights Reserved
                     </p>

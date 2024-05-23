@@ -51,7 +51,6 @@ const ProductPage = () => {
                         includes={productData.includes}
                     />
                     <ProductGridImg slug={productData.slug} />
-
                     <ProductSuggestion others={productData.others} />
                 </>
             )}
