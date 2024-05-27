@@ -3,8 +3,9 @@
 ## Context
 
 The objective was to integrate the Audiophile e-commerce site.   
-To achieve this objective, I had at my disposal the Figma model of the site.   
-I used Redux toolkit for cart management.
+To achieve this objective, I had at my disposal the Figma model of the site.     
+Copy of an e-commerce site including a shopping cart system and an order form.   
+I used Redux toolkit for cart management, Tailwind for styling and Typescript as programming language. 
 
 ## Main technologies and packages
 
