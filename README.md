@@ -7,6 +7,13 @@ To achieve this objective, I had at my disposal the Figma model of the site.
 Copy of an e-commerce site including a shopping cart system and an order form.   
 I used Redux toolkit for cart management, Tailwind for styling and Typescript as programming language. 
 
+## Preview/design
+
+![image](https://i.imgur.com/40Akfha.png)   
+    
+
+![image](https://i.imgur.com/wwZsvp1.png)
+
 ## Main technologies and packages
 
 - React
